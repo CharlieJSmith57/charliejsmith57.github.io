@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css?v=3">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -154,11 +154,12 @@
         <h2>In the field and at the desk</h2>
         <p>Cairn runs on the phone in your hand; the server dashboard runs on the Mac at the desk. Scroll and both tilt toward you.</p>
         <div class="devices">
-          <div>
+          <div class="mac-wrap">
             <div class="device" data-pivot="14" data-yaw="0">
               <div class="mac-lid">
                 <div class="mac-screen">
-                  <img src="assets/images/plenum-server-dashboard.jpg" alt="The Plenum Server dashboard under load: jobs in progress with step names and progress bars, worker CPU and GPU utilisation, and queue depth" loading="lazy" width="1800" height="1125">
+                  <img class="img-light" src="assets/images/plenum-server-dashboard.jpg" alt="The Plenum Server load manager under load: run states, node capacity bars, a fleet of workers, a run timeline and two remote runs in progress" loading="lazy" width="1800" height="1125">
+                  <img class="img-dark" src="assets/images/plenum-server-dashboard-dark.jpg" alt="" loading="lazy" width="1800" height="1125">
                 </div>
               </div>
               <div class="mac-base" aria-hidden="true"></div>
@@ -173,7 +174,7 @@
                 </div>
               </div>
             </div>
-            <div class="device-label"><b>Cairn</b><span>Capture screen, mid-visit</span></div>
+            <div class="device-label"><b>Cairn</b><span>Capture screen</span></div>
           </div>
         </div>
 
@@ -190,7 +191,8 @@
         </ul>
 
         <figure class="figure" data-reveal>
-          <img src="assets/images/plenum-server-system.jpg" alt="The Plenum Server system board: GPU compute at 90 percent with 17.5 GB of VRAM in use, a 16-core CPU heat map, RAM, load, swap, two drive throughput graphs and network in and out" loading="lazy" width="1800" height="1150">
+          <img class="img-dark" src="assets/images/plenum-server-system-dark.jpg" alt="" loading="lazy" width="1800" height="1150">
+          <img class="img-light" src="assets/images/plenum-server-system.jpg" alt="The Plenum Server system board: GPU compute at 90 percent with 17.5 GB of VRAM in use, a 16-core CPU heat map, RAM, load, swap, two drive throughput graphs and network in and out" loading="lazy" width="1800" height="1150">
           <figcaption>Plenum Server’s system board on the GPU worker during a splat-training run (simulated load): GPU compute and VRAM, per-core CPU, drive and network throughput over the last two minutes.</figcaption>
         </figure>
 
@@ -238,6 +240,6 @@
     </div>
   </footer>
 
-  <script src="assets/main.js"></script>
+  <script src="assets/main.js?v=3"></script>
 </body>
 </html>
