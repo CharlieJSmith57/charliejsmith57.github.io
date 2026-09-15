@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=3">
+  <link rel="stylesheet" href="assets/style.css?v=4">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -155,40 +155,16 @@
         <p>Cairn runs on the phone in your hand; Plenum runs on the Mac at the desk. Drag either one to turn it over.</p>
         <div class="devices">
           <div class="mac-wrap">
-            <div class="stage" aria-label="Interactive 3D MacBook showing Plenum. Drag to spin.">
-              <div class="obj3d mac3d" data-ry="-16" data-rx="7" data-depth="0.012" data-sway="6">
-                <div class="lid">
-                  <div class="face front">
-                    <div class="screen">
-                      <img src="assets/images/plenum-unity-hall-splat.jpg" alt="Plenum showing a photo-textured triangle splat of a Unity Hall hallway, with the discipline-coloured asset sidebar on the left" loading="lazy" width="1600" height="1246">
-                    </div>
-                  </div>
-                  <div class="face back" aria-hidden="true"></div>
-                  <div class="rim" aria-hidden="true"></div>
-                </div>
-                <div class="base" aria-hidden="true">
-                  <div class="deck"></div>
-                  <div class="lip"></div>
-                  <div class="underside"></div>
-                </div>
-              </div>
+            <div class="stage" data-device="mac" data-screen="assets/images/plenum-unity-hall-splat.jpg" aria-label="Interactive 3D MacBook showing Plenum. Drag to spin.">
+              <canvas aria-hidden="true"></canvas>
+              <img class="fallback" src="assets/images/plenum-unity-hall-splat.jpg" alt="Plenum showing a photo-textured triangle splat of a Unity Hall hallway, with the discipline-coloured asset sidebar on the left" loading="lazy" width="1600" height="1246" draggable="false">
             </div>
             <div class="device-label"><b>Plenum</b><span class="device-hint">Drag to spin · hover to tilt</span></div>
           </div>
           <div class="phone">
-            <div class="stage" aria-label="Interactive 3D iPhone showing Cairn. Drag to spin.">
-              <div class="obj3d phone3d" data-ry="18" data-rx="4" data-depth="0.11" data-sway="9">
-                <div class="face front">
-                  <div class="screen">
-                    <img src="assets/images/cairn-capture.jpg" alt="Cairn’s capture screen: the tracking status card with observation, room, floor and elapsed readouts, the nameplate scanner, asset and detail-photo buttons, and the octagon stop control over the live camera view" loading="lazy" width="786" height="1704">
-                  </div>
-                </div>
-                <div class="face back" aria-hidden="true"></div>
-                <div class="side side-l" aria-hidden="true"></div>
-                <div class="side side-r" aria-hidden="true"></div>
-                <div class="side side-t" aria-hidden="true"></div>
-                <div class="side side-b" aria-hidden="true"></div>
-              </div>
+            <div class="stage" data-device="phone" data-screen="assets/images/cairn-capture.jpg" aria-label="Interactive 3D iPhone showing Cairn. Drag to spin.">
+              <canvas aria-hidden="true"></canvas>
+              <img class="fallback" src="assets/images/cairn-capture.jpg" alt="Cairn’s capture screen: the tracking status card with observation, room, floor and elapsed readouts, the nameplate scanner, asset and detail-photo buttons, and the octagon stop control over the live camera view" loading="lazy" width="786" height="1704" draggable="false">
             </div>
             <div class="device-label"><b>Cairn</b><span class="device-hint">Drag to spin</span></div>
           </div>
@@ -256,6 +232,8 @@
     </div>
   </footer>
 
-  <script src="assets/main.js?v=3"></script>
+  <script src="assets/main.js?v=4"></script>
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+  <script type="module" src="assets/devices3d.js?v=4"></script>
 </body>
 </html>
