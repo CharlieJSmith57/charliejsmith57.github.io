@@ -1,325 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — Charles Smith</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>About — Charlie Smith</title>
+  <meta name="description" content="Charles J. Smith: mechanical engineering student at WPI (class of 2028), building Cairn and Plenum at Ledgeline Labs, with a background in manufacturing, operations and photography.">
+  <meta property="og:title" content="About — Charlie Smith">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>(function(){try{var t=localStorage.getItem('theme')||'system';if(t==='dark'||(t==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.setAttribute('data-theme','dark')}catch(e){}})()</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
-  <style>
-    /* Education blocks */
-    .edu-block { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
-    .edu-block:last-child { border-bottom: none; margin-bottom: 0; }
-    .edu-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.3rem; }
-    .edu-name { font-weight: 500; font-size: 0.97rem; }
-    .edu-degree { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
-    .edu-year { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); white-space: nowrap; }
-
-    /* LinkedIn-style grouped employer block */
-    .employer-block { padding: 1.5rem 0; border-top: 1px solid var(--border); }
-    .employer-block:last-child { border-bottom: 1px solid var(--border); }
-    .employer-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 0.75rem; }
-    .employer-logo {
-      width: 42px; height: 42px; border-radius: 6px;
-      background: var(--bg-card); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-mono); font-size: 0.6rem; color: var(--text-muted);
-      text-transform: uppercase; letter-spacing: 0.05em; text-align: center;
-      line-height: 1.2; flex-shrink: 0;
-    }
-    .employer-meta { flex: 1; }
-    .employer-name { font-weight: 500; font-size: 0.97rem; color: var(--text-primary); }
-    .employer-duration { font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 0.1rem; }
-    .role-item { padding: 0.6rem 0 0.6rem 3.2rem; position: relative; }
-    .role-item::before {
-      content: '';
-      position: absolute;
-      left: 20px; top: 1rem;
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      border: 1.5px solid var(--text-muted);
-      background: transparent;
-    }
-    .role-item + .role-item { border-top: 1px solid var(--border); }
-    .role-title { font-weight: 500; font-size: 0.93rem; color: var(--text-primary); }
-    .role-dates { font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); margin: 0.15rem 0 0.4rem; }
-    .role-desc { font-size: 0.87rem; color: var(--text-secondary); line-height: 1.65; }
-
-    /* Leadership rows */
-    .activity-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.55rem 0; border-top: 1px solid var(--border); font-size: 0.88rem; }
-    .activity-row:last-child { border-bottom: 1px solid var(--border); }
-    .activity-title { color: var(--text-secondary); flex: 1; }
-    .activity-title strong { color: var(--text-primary); font-weight: 500; }
-    .activity-date { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); white-space: nowrap; flex-shrink: 0; }
-
-    /* Headshot avatar */
-    .avatar-img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      border-radius: var(--radius);
-    }
-    .avatar-fallback {
-      font-family: var(--font-display);
-      font-size: 4rem;
-      color: var(--text-muted);
-      letter-spacing: 0.1em;
-    }
-  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
 
-  <nav class="nav">
-    <a href="index.html" class="nav-logo">CJS<span class="accent">.</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="about.html" class="active">About</a></li>
-      <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <section class="container">
-    <div class="about-grid">
-
-      <!-- ── SIDEBAR ── -->
-      <div class="about-sticky">
-        <div class="about-avatar">
-          <!-- To add your headshot: drop a file named headshot.jpg into assets/images/ -->
-          <img src="assets/images/headshot.jpg" alt="Charles Smith" class="avatar-img"
-               onerror="this.style.display='none'; document.getElementById('avatar-fallback').style.display='flex';">
-          <span id="avatar-fallback" class="avatar-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center;">CJS</span>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="wordmark" aria-label="Charlie Smith, home">
+        <svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3h18M3 21h18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><rect x="4.4" y="7" width="2.2" height="10" rx="1" fill="#8f89ad"/><rect x="8" y="9" width="2.2" height="8" rx="1" fill="#7e9b73"/><rect x="11.6" y="11" width="2.2" height="6" rx="1" fill="#6a97b8"/><rect x="15.2" y="6" width="2.2" height="11" rx="1" fill="#d4914f"/><rect x="18.8" y="12" width="2.2" height="5" rx="1" fill="#d8664f"/></svg>
+        Charlie Smith
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="index.html" data-page="index.html,">Home</a>
+        <a href="projects.html" data-page="projects.html,cairn-plenum.html,linkedin-plus.html,zeolite-water.html,stirling-engine.html,portfolio-site.html">Work</a>
+        <a href="about.html" data-page="about.html">About</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <div class="seg" role="group" aria-label="Appearance">
+          <button type="button" data-theme-set="system" aria-pressed="true">System</button>
+          <button type="button" data-theme-set="light" aria-pressed="false">Light</button>
+          <button type="button" data-theme-set="dark" aria-pressed="false">Dark</button>
         </div>
-        <p class="about-name">Charles J. Smith</p>
-        <p class="about-role">Mechanical Engineering Student<br>Worcester Polytechnic Institute</p>
-
-        <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 0.6rem;">
-          <div style="display:flex; align-items:center; gap:0.5rem;">
-            <span style="font-size:0.7rem; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); width:3rem; flex-shrink:0;">Email</span>
-            <a href="mailto:csmith6@wpi.edu" class="contact-social" style="font-size: 0.82rem;">csmith6@wpi.edu</a>
-          </div>
-          <div style="display:flex; align-items:center; gap:0.5rem;">
-            <span style="font-size:0.7rem; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); width:3rem; flex-shrink:0;">Phone</span>
-            <a href="tel:8575294401" class="contact-social" style="font-size: 0.82rem;">(857) 529-4401</a>
-          </div>
-          <div style="display:flex; align-items:center; gap:0.5rem;">
-            <span style="font-size:0.7rem; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); width:3rem; flex-shrink:0;">In</span>
-            <a href="https://www.linkedin.com/in/csmith2006/" target="_blank" class="contact-social" style="font-size: 0.82rem;">csmith2006 ↗</a>
-          </div>
-          <div style="display:flex; align-items:center; gap:0.5rem;">
-            <span style="font-size:0.7rem; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); width:3rem; flex-shrink:0;">Git</span>
-            <a href="https://github.com/CharlieJSmith57" target="_blank" class="contact-social" style="font-size: 0.82rem;">CharlieJSmith57 ↗</a>
-          </div>
-          <a href="assets/resume.pdf" target="_blank" class="btn-primary" style="margin-top: 0.75rem; width: fit-content;">Download Résumé</a>
-        </div>
-      </div>
-
-      <!-- ── MAIN CONTENT ── -->
-      <div class="about-content">
-        <span class="section-tag">About Me</span>
-        <h2>Goal-oriented. Creative. Builder.</h2>
-
-        <p>I'm a Mechanical Engineering student at Worcester Polytechnic Institute (class of 2028), with a background in manufacturing, operations management, and entrepreneurship. I'm a quick learner and creative problem solver with hands-on experience across a range of technical tools and leadership roles.</p>
-        <p>Outside the classroom I run my own photography business, manage a team of ~20 as Aquatics Manager, and serve as Public Relations Chairman for Theta Chi. I'm open to relocation and actively seeking internship and co-op opportunities.</p>
-
-        <!-- ── EDUCATION ── -->
-        <div style="margin-top: 3rem;">
-          <h3 style="font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 0.04em; margin-bottom: 1.5rem;">Education</h3>
-
-          <div class="edu-block">
-            <div class="edu-header">
-              <span class="edu-name">Worcester Polytechnic Institute</span>
-              <span class="edu-year">2024 — 2028</span>
-            </div>
-            <p class="edu-degree"><strong>B.S. Mechanical Engineering</strong> &nbsp;·&nbsp; Worcester, MA</p>
-
-            <p style="font-size: 0.72rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.5rem;">Completed &amp; Current Coursework</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem;">
-              <span class="tag">Calculus II–IV</span>
-              <span class="tag">Differential Equations</span>
-              <span class="tag">Physics: Mechanics</span>
-              <span class="tag">Electricity &amp; Magnetism</span>
-              <span class="tag">Material Science</span>
-              <span class="tag">ME 1800 Manufacturing</span>
-            </div>
-
-            <p style="font-size: 0.72rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.5rem;">Planned Coursework</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.25rem;">
-              <span class="tag">ES 2501 Statics</span>
-              <span class="tag">ES 2502 Stress Analysis</span>
-              <span class="tag">ES 2503 Dynamics</span>
-              <span class="tag">ES 2001 Material Science</span>
-              <span class="tag">ECE 2010 Intro to ECE</span>
-              <span class="tag">MA 2051 ODEs</span>
-              <span class="tag">MA 2071 Linear Algebra</span>
-            </div>
-
-            <p style="font-size: 0.72rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.5rem;">Activities</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
-              <span class="tag">Theta Chi, Epsilon Chapter</span>
-              <span class="tag">ASME</span>
-              <span class="tag">Photography Club</span>
-              <span class="tag">Club Swim Team — VP (2026–27)</span>
-            </div>
-          </div>
-
-          <div class="edu-block">
-            <div class="edu-header">
-              <span class="edu-name">Canton High School</span>
-              <span class="edu-year">2020 — 2024</span>
-            </div>
-            <p class="edu-degree"><strong>High School Diploma</strong> &nbsp;·&nbsp; Canton, MA &nbsp;·&nbsp; Honor Roll</p>
-
-            <p style="font-size: 0.72rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.5rem;">Relevant Coursework</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.25rem;">
-              <span class="tag">AP Calculus AB</span>
-              <span class="tag">AP Physics 2</span>
-              <span class="tag">AP Statistics</span>
-            </div>
-
-            <p style="font-size: 0.72rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.5rem;">Activities</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
-              <span class="tag">Varsity Swim — Captain</span>
-              <span class="tag">Varsity Cross Country</span>
-              <span class="tag">Varsity Track &amp; Field</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── EXPERIENCE (LinkedIn-style grouped) ── -->
-        <div style="margin-top: 2.5rem;">
-          <h3 style="font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 0.04em; margin-bottom: 0.5rem;">Experience</h3>
-
-          <!-- Milton Hoosic — grouped employer -->
-          <div class="employer-block">
-            <div class="employer-header">
-              <div class="employer-logo">MHC</div>
-              <div class="employer-meta">
-                <div class="employer-name">Milton Hoosic Country Club</div>
-                <div class="employer-duration">Seasonal &nbsp;·&nbsp; Canton, MA &nbsp;·&nbsp; 4 yrs</div>
-              </div>
-            </div>
-
-            <div class="role-item">
-              <div class="role-title">Aquatics Manager</div>
-              <div class="role-dates">Mar 2024 – Present &nbsp;·&nbsp; 2 yrs 2 mos</div>
-              <p class="role-desc">Actively manage a staff of ~20 employees — hiring, onboarding, scheduling, payroll processing, and timecard approval via iSolved People Cloud. Direct operations for an aquatics program serving 500+ members. Responsible for safe operation and maintenance of pool chemicals and equipment. Train and mentor new lifeguards while maintaining American Red Cross CPR/AED certification.</p>
-            </div>
-
-            <div class="role-item">
-              <div class="role-title">Lifeguard</div>
-              <div class="role-dates">May 2022 – Mar 2024 &nbsp;·&nbsp; 1 yr 11 mos</div>
-              <p class="role-desc">Monitored and supervised pools and aquatic areas to ensure patron safety. Maintained certifications in CPR, First Aid, and AED from American Red Cross.</p>
-            </div>
-          </div>
-
-          <!-- Chuck's Flicks — solo -->
-          <div class="employer-block">
-            <div class="employer-header">
-              <div class="employer-logo">CF</div>
-              <div class="employer-meta">
-                <div class="employer-name">Chuck's Flicks Photography</div>
-                <div class="employer-duration">Self-employed &nbsp;·&nbsp; Greater Boston</div>
-              </div>
-            </div>
-            <div class="role-item">
-              <div class="role-title">Founder &amp; Owner</div>
-              <div class="role-dates">Apr 2023 – Present &nbsp;·&nbsp; 3 yrs</div>
-              <p class="role-desc">Founded a photography business specializing in portraits and sports photography. Built a network of dozens of clients including local businesses and politicians. Grew social media to 400+ followers. Skilled in Adobe Photoshop, Lightroom, and AI-powered editing tools. Experience in digital marketing, workflow management, and project coordination.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── PROJECTS ── -->
-        <div class="timeline" style="margin-top: 2.5rem;">
-          <h3 style="font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 0.04em; margin-bottom: 1rem;">Projects</h3>
-
-          <div class="timeline-item">
-            <span class="timeline-year">2024 — Present</span>
-            <div class="timeline-body">
-              <h4><a href="project-1.html" style="color: inherit; border-bottom: 1px solid var(--border-hover);">Stirling Engine — ME 1800</a></h4>
-              <p>Machined a functional Stirling engine from raw stock using CAM software and CNC lathes and mills. Full CAD-to-part pipeline covering toolpath planning, dimensional metrology, and surface finish analysis.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-year">Oct 2024 — Mar 2025</span>
-            <div class="timeline-body">
-              <h4><a href="project-2.html" style="color: inherit; border-bottom: 1px solid var(--border-hover);">WPI GPS — Air to Water Extraction, Abalessa, Algeria</a></h4>
-              <p>Co-authored a research plan to provide fresh water access to an impoverished region in Algeria using MIT-developed Zeolite atmospheric water collection technology.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-year">2026</span>
-            <div class="timeline-body">
-              <h4><a href="project-3.html" style="color: inherit; border-bottom: 1px solid var(--border-hover);">This Portfolio Website — Built with Claude Code</a></h4>
-              <p>Designed and built a multi-page static portfolio site using HTML, CSS, and vanilla JS, deployed on GitHub Pages. Developed iteratively using Claude Code with version control throughout.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── LEADERSHIP ── -->
-        <div style="margin-top: 2.5rem;">
-          <h3 style="font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 0.04em; margin-bottom: 0.25rem;">Leadership &amp; Activities</h3>
-          <div>
-            <div class="activity-row">
-              <span class="activity-title"><strong>Vice President</strong> — WPI Club Swim Team</span>
-              <span class="activity-date">2026–27 Season</span>
-            </div>
-            <div class="activity-row">
-              <span class="activity-title"><strong>Public Relations Chairman</strong> — Theta Chi, Epsilon Chapter</span>
-              <span class="activity-date">Mar 2025 — Present</span>
-            </div>
-            <div class="activity-row">
-              <span class="activity-title">ASME &nbsp;·&nbsp; WPI Photography Club &nbsp;·&nbsp; WPI Club Swim Team</span>
-              <span class="activity-date">Aug 2024 — Present</span>
-            </div>
-            <div class="activity-row">
-              <span class="activity-title"><strong>Captain</strong> — Varsity Swim, Canton High School</span>
-              <span class="activity-date">2023 — 2024</span>
-            </div>
-            <div class="activity-row">
-              <span class="activity-title">Varsity Cross Country &nbsp;·&nbsp; Varsity Track &amp; Field, Canton High School</span>
-              <span class="activity-date">2020 — 2024</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── SKILLS ── -->
-        <div style="margin-top: 3.5rem;">
-          <h3 style="font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 0.04em; margin-bottom: 1.5rem;">Skills</h3>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-            <div style="padding: 1rem; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border);">
-              <p style="font-size: 0.72rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 0.5rem;">Software</p>
-              <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Onshape, AutoCAD, MATLAB, Microsoft Office, Adobe Creative Cloud (Photoshop, Lightroom)</p>
-            </div>
-            <div style="padding: 1rem; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border);">
-              <p style="font-size: 0.72rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 0.5rem;">Certifications</p>
-              <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">American Red Cross CPR/AED (2021–present), PHTA Certified Pool Operator (2024–present)</p>
-            </div>
-            <div style="padding: 1rem; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border);">
-              <p style="font-size: 0.72rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 0.5rem;">Languages</p>
-              <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">English (Native), French (Intermediate), Spanish (Beginner)</p>
-            </div>
-            <div style="padding: 1rem; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border);">
-              <p style="font-size: 0.72rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 0.5rem;">Other</p>
-              <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Team leadership, staff scheduling, payroll processing, digital marketing, photography &amp; photo editing</p>
-            </div>
-          </div>
-        </div>
-
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
       </div>
     </div>
-  </section>
+  </header>
+
+  <main id="main" class="container about-grid">
+    <aside class="about-side">
+      <div>
+        <div class="avatar"><img src="assets/images/headshot.jpg" alt="Charlie Smith" width="475" height="550"></div>
+        <p class="about-name">Charles J. Smith</p>
+        <p class="about-role">Mechanical Engineering, WPI ’28<br>Founder, Ledgeline Labs</p>
+      </div>
+      <div>
+        <div class="kv">
+          <div><span>Email</span><a href="mailto:csmith6@wpi.edu">csmith6@wpi.edu</a></div>
+          <div><span>Phone</span><a href="tel:8575294401">(857) 529-4401</a></div>
+          <div><span>In</span><a href="https://www.linkedin.com/in/csmith2006/" target="_blank" rel="noopener">csmith2006 ↗</a></div>
+          <div><span>Git</span><a href="https://github.com/CharlieJSmith57" target="_blank" rel="noopener">CharlieJSmith57 ↗</a></div>
+        </div>
+        <a href="assets/resume.pdf" target="_blank" rel="noopener" class="btn btn-ink" style="margin-top:1.2rem">Download résumé</a>
+      </div>
+    </aside>
+
+    <div class="about-main">
+      <span class="eyebrow"><span class="tick"></span> About</span>
+      <h2>Goal-oriented. Hands-on. Builds the whole chain.</h2>
+      <p>I’m a mechanical engineering student at Worcester Polytechnic Institute, class of 2028, with a background in manufacturing, operations management and a small business of my own. I learn fast and I like problems that start in the physical world and end in software.</p>
+      <p>Most of my time right now goes into Cairn and Plenum: a LiDAR capture app, a fusion server and a Mac viewer that turn a building walk-through into a tagged, photo-textured 3D record. Outside of that I run a photography business, manage a team of about twenty as an aquatics manager, and serve as Public Relations Chairman for Theta Chi. I’m open to relocation and actively looking for internship and co-op opportunities.</p>
+
+      <div class="block" data-reveal>
+        <h3>Education</h3>
+        <div class="edu">
+          <div class="edu-head"><span class="edu-name">Worcester Polytechnic Institute</span><span class="edu-year">2024 — 2028</span></div>
+          <p class="edu-degree"><strong>B.S. Mechanical Engineering</strong> · Worcester, MA</p>
+          <p class="sub">Completed &amp; current coursework</p>
+          <div class="tags"><span class="tag">Calculus II–IV</span><span class="tag">Differential Equations</span><span class="tag">Physics: Mechanics</span><span class="tag">Electricity &amp; Magnetism</span><span class="tag">Material Science</span><span class="tag">ME 1800 Manufacturing</span></div>
+          <p class="sub">Planned coursework</p>
+          <div class="tags"><span class="tag">ES 2501 Statics</span><span class="tag">ES 2502 Stress Analysis</span><span class="tag">ES 2503 Dynamics</span><span class="tag">ES 2001 Material Science</span><span class="tag">ECE 2010 Intro to ECE</span><span class="tag">MA 2051 ODEs</span><span class="tag">MA 2071 Linear Algebra</span></div>
+          <p class="sub">Activities</p>
+          <div class="tags"><span class="tag tag--brass">Theta Chi, Epsilon Chapter</span><span class="tag">ASME</span><span class="tag">Photography Club</span><span class="tag">Club Swim Team, VP 2026–27</span></div>
+        </div>
+        <div class="edu">
+          <div class="edu-head"><span class="edu-name">Canton High School</span><span class="edu-year">2020 — 2024</span></div>
+          <p class="edu-degree"><strong>High School Diploma</strong> · Canton, MA · Honor Roll</p>
+          <p class="sub">Relevant coursework</p>
+          <div class="tags"><span class="tag">AP Calculus AB</span><span class="tag">AP Physics 2</span><span class="tag">AP Statistics</span></div>
+          <p class="sub">Activities</p>
+          <div class="tags"><span class="tag">Varsity Swim, Captain</span><span class="tag">Varsity Cross Country</span><span class="tag">Varsity Track &amp; Field</span></div>
+        </div>
+      </div>
+
+      <div class="block" data-reveal>
+        <h3>Experience</h3>
+        <div class="role">
+          <div class="role-logo"><img src="assets/images/cairn-icon.png" alt="" width="46" height="46"></div>
+          <div>
+            <div class="role-org">Ledgeline Labs</div>
+            <div class="role-when">Jul 2026 – present · Worcester, MA</div>
+            <div class="role-title">Founder</div>
+            <p>Founded Ledgeline Labs to build Cairn &amp; Plenum, a field-to-record system for building inspection: an iOS LiDAR capture app, a Linux-portable Swift server for registration, fusion and texture baking, a CUDA splat-training service, and a macOS viewer for MEP tagging. Sets the product direction, owns the design system shared across the apps and the verification discipline behind every release. <a href="cairn-plenum.html" class="btn-text">Case study <span class="arr">→</span></a></p>
+          </div>
+        </div>
+        <div class="role">
+          <div class="role-logo">MHCC</div>
+          <div>
+            <div class="role-org">Milton Hoosic Country Club</div>
+            <div class="role-when">Seasonal · Canton, MA · 4 yrs</div>
+            <div class="role-title">Aquatics Manager</div>
+            <div class="role-when">Mar 2024 – present</div>
+            <p>Manage a staff of about 20: hiring, onboarding, scheduling, payroll processing and timecard approval through iSolved People Cloud. Direct operations for an aquatics program serving 500+ members, responsible for safe operation and maintenance of pool chemicals and equipment. Train and mentor new lifeguards; American Red Cross CPR/AED certified.</p>
+            <div class="role-title">Lifeguard</div>
+            <div class="role-when">May 2022 – Mar 2024</div>
+            <p>Monitored and supervised pools and aquatic areas to ensure patron safety. Maintained CPR, First Aid and AED certifications from the American Red Cross.</p>
+          </div>
+        </div>
+        <div class="role">
+          <div class="role-logo">CF</div>
+          <div>
+            <div class="role-org">Chuck’s Flicks Photography</div>
+            <div class="role-when">Apr 2023 – present · Self-employed · Greater Boston</div>
+            <div class="role-title">Founder &amp; Owner</div>
+            <p>Founded a photography business specialising in portraits and sports. Built a client base of dozens of local businesses and politicians and grew social media to 400+ followers. Adobe Photoshop, Lightroom and AI-assisted editing; digital marketing, workflow management and project coordination.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="block" data-reveal>
+        <h3>Projects</h3>
+        <div class="rows">
+          <div><span><b><a href="cairn-plenum.html">Cairn &amp; Plenum</a></b> — LiDAR capture to tagged 3D record</span><small>Jul 2026 – present</small></div>
+          <div><span><b><a href="linkedin-plus.html">LinkedIn+</a></b> — network intelligence pipeline and graph</span><small>Apr – Aug 2026</small></div>
+          <div><span><b><a href="zeolite-water.html">Water from air, Abalessa</a></b> — WPI Great Problems Seminar</span><small>Oct 2024 – Mar 2025</small></div>
+          <div><span><b><a href="stirling-engine.html">Stirling engine</a></b> — CAM to CNC, ME 1800</span><small>2024 – 2025</small></div>
+          <div><span><b><a href="portfolio-site.html">This site</a></b> — built with Claude Code on GitHub Pages</span><small>2026</small></div>
+        </div>
+      </div>
+
+      <div class="block" data-reveal>
+        <h3>Leadership &amp; activities</h3>
+        <div class="rows">
+          <div><span><b>Vice President</b> — WPI Club Swim Team</span><small>2026–27 season</small></div>
+          <div><span><b>Public Relations Chairman</b> — Theta Chi, Epsilon Chapter</span><small>Mar 2025 – present</small></div>
+          <div><span>ASME · WPI Photography Club · WPI Club Swim Team</span><small>Aug 2024 – present</small></div>
+          <div><span><b>Captain</b> — Varsity Swim, Canton High School</span><small>2023 – 2024</small></div>
+          <div><span>Varsity Cross Country · Varsity Track &amp; Field, Canton High School</span><small>2020 – 2024</small></div>
+        </div>
+      </div>
+
+      <div class="block" data-reveal>
+        <h3>Skills</h3>
+        <div class="skills">
+          <div class="skill"><p class="sub">Software engineering</p><p>Swift 6 &amp; SwiftUI, ARKit &amp; RoomPlan, SceneKit &amp; Metal, Python, PyTorch &amp; CUDA, Playwright, D3 &amp; three.js, Git, AI-assisted development with Claude Code</p></div>
+          <div class="skill"><p class="sub">Engineering tools</p><p>Onshape, AutoCAD, Mastercam, CNC lathe and mill, MATLAB, Microsoft Office</p></div>
+          <div class="skill"><p class="sub">Certifications</p><p>American Red Cross CPR/AED (2021–present), PHTA Certified Pool Operator (2024–present)</p></div>
+          <div class="skill"><p class="sub">Creative &amp; operations</p><p>Adobe Photoshop and Lightroom, photography, digital marketing, team leadership, staff scheduling, payroll processing</p></div>
+          <div class="skill"><p class="sub">Languages</p><p>English (native), French (intermediate), Spanish (beginner)</p></div>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <footer class="footer">
-    <div class="container">
-      <span class="nav-logo">CJS<span class="accent">.</span></span>
-      <p>© 2026 — Charles J. Smith</p>
+    <div class="container footer-inner">
+      <span>© 2026 Charles J. Smith · Worcester, MA</span>
+      <nav aria-label="Footer">
+        <a href="projects.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="mailto:csmith6@wpi.edu">Email</a>
+      </nav>
     </div>
   </footer>
 

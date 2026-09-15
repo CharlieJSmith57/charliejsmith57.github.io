@@ -1,186 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio — Charles Smith</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Charlie Smith — Mechanical engineer who ships the software too</title>
+  <meta name="description" content="Charlie Smith is a mechanical engineering student at WPI building Cairn and Plenum, a LiDAR capture-to-3D-record pipeline, plus research, manufacturing and data projects.">
+  <meta property="og:title" content="Charlie Smith — Portfolio">
+  <meta property="og:description" content="Mechanical engineer who ships the software too. Cairn & Plenum, LinkedIn+, water-from-air research, and a CNC-machined Stirling engine.">
+  <meta property="og:image" content="https://charliejsmith57.github.io/assets/images/plenum-unity-hall-splat.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>(function(){try{var t=localStorage.getItem('theme')||'system';if(t==='dark'||(t==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.setAttribute('data-theme','dark')}catch(e){}})()</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
 
-  <nav class="nav">
-    <a href="index.html" class="nav-logo">CJS<span class="accent">.</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="#contact" class="nav-cta">Contact</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <section class="hero">
-    <div class="hero-bg-grid"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow"><span class="dot"></span> Mechanical Engineering Student — WPI Class of 2028</p>
-      <h1 class="hero-title">
-        Engineering<br>
-        <span class="outline-text">Problems</span><br>
-        That Matter.
-      </h1>
-      <p class="hero-sub">Mechanical Engineering student at Worcester Polytechnic Institute. Quick learner, creative problem solver, and hands-on builder with experience across manufacturing, operations, and research.</p>
-      <div class="hero-actions">
-        <a href="projects.html" class="btn-primary">View Projects</a>
-        <a href="about.html" class="btn-ghost">About Me →</a>
-      </div>
-    </div>
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-num">2028</span>
-        <span class="stat-label">Expected Grad.</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-num">3+</span>
-        <span class="stat-label">Years Work Exp.</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-num">2</span>
-        <span class="stat-label">Certifications</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="featured">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Featured Work</span>
-        <h2>Selected Projects</h2>
-      </div>
-      <div class="project-grid">
-
-        <a href="project-1.html" class="project-card project-card--large">
-          <div class="project-card-img" style="background: linear-gradient(135deg, #1a1000 0%, #2e1f00 50%, #3d2800 100%);">
-            <div class="project-placeholder-art art-2"></div>
-          </div>
-          <div class="project-card-body">
-            <div class="project-tags">
-              <span class="tag">CNC Machining</span>
-              <span class="tag">CAM / CAD</span>
-              <span class="tag">ME 1800</span>
-            </div>
-            <h3>Stirling Engine — CAD to CNC</h3>
-            <p>Machined a functional Stirling engine from raw stock using CAM software and CNC lathes and mills. Full pipeline from solid model to finished, assembled part.</p>
-            <span class="project-link">View Case Study →</span>
-          </div>
-        </a>
-
-        <a href="project-2.html" class="project-card">
-          <div class="project-card-img" style="background: linear-gradient(135deg, #0d1a0f 0%, #0a2e1a 50%, #093d1e 100%);">
-            <div class="project-placeholder-art art-1"></div>
-          </div>
-          <div class="project-card-body">
-            <div class="project-tags">
-              <span class="tag">Research</span>
-              <span class="tag">Water Engineering</span>
-              <span class="tag">WPI GPS</span>
-            </div>
-            <h3>Air to Water Extraction — Abalessa, Algeria</h3>
-            <p>Co-authored a research plan to deliver fresh water to an impoverished region in Algeria using MIT-developed Zeolite atmospheric water collection technology.</p>
-            <span class="project-link">View Case Study →</span>
-          </div>
-        </a>
-
-        <a href="project-3.html" class="project-card">
-          <div class="project-card-img" style="background: linear-gradient(135deg, #0a0a0a 0%, #111827 50%, #0f172a 100%); display: flex; align-items: center; justify-content: center;">
-            <svg width="120" height="70" viewBox="0 0 120 70" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.45;">
-              <rect x="5" y="5" width="110" height="60" rx="4" stroke="#c8ff00" stroke-width="0.75"/>
-              <line x1="5" y1="20" x2="115" y2="20" stroke="#c8ff00" stroke-width="0.4"/>
-              <circle cx="14" cy="12.5" r="2.5" stroke="#c8ff00" stroke-width="0.5"/>
-              <circle cx="21" cy="12.5" r="2.5" stroke="#c8ff00" stroke-width="0.5"/>
-              <circle cx="28" cy="12.5" r="2.5" stroke="#c8ff00" stroke-width="0.5"/>
-              <rect x="14" y="28" width="40" height="4" rx="1" fill="#c8ff00" opacity="0.12"/>
-              <rect x="14" y="36" width="60" height="8" rx="1" fill="#c8ff00" opacity="0.07"/>
-              <rect x="14" y="50" width="25" height="5" rx="2" stroke="#c8ff00" stroke-width="0.6" fill="rgba(200,255,0,0.06)"/>
-              <rect x="75" y="27" width="32" height="22" rx="2" stroke="#c8ff00" stroke-width="0.5" opacity="0.3"/>
-            </svg>
-          </div>
-          <div class="project-card-body">
-            <div class="project-tags">
-              <span class="tag">HTML / CSS / JS</span>
-              <span class="tag">Claude Code</span>
-            </div>
-            <h3>This Portfolio Website</h3>
-            <p>Multi-page static site built with Claude Code, deployed on GitHub Pages.</p>
-            <span class="project-link">View Case Study →</span>
-          </div>
-        </a>
-
-      </div>
-      <div class="all-projects-cta">
-        <a href="projects.html" class="btn-ghost">See All Projects →</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="skills-bar">
-    <div class="container">
-      <div class="skills-marquee">
-        <div class="skills-track">
-          <span>Onshape</span><span class="sep">·</span>
-          <span>AutoCAD</span><span class="sep">·</span>
-          <span>MATLAB</span><span class="sep">·</span>
-          <span>Adobe Creative Cloud</span><span class="sep">·</span>
-          <span>Microsoft Office</span><span class="sep">·</span>
-          <span>CPR / AED Certified</span><span class="sep">·</span>
-          <span>Pool Operations</span><span class="sep">·</span>
-          <span>Team Leadership</span><span class="sep">·</span>
-          <span>Digital Marketing</span><span class="sep">·</span>
-          <span>French</span><span class="sep">·</span>
-          <span>Onshape</span><span class="sep">·</span>
-          <span>AutoCAD</span><span class="sep">·</span>
-          <span>MATLAB</span><span class="sep">·</span>
-          <span>Adobe Creative Cloud</span><span class="sep">·</span>
-          <span>Microsoft Office</span><span class="sep">·</span>
-          <span>CPR / AED Certified</span><span class="sep">·</span>
-          <span>Pool Operations</span><span class="sep">·</span>
-          <span>Team Leadership</span><span class="sep">·</span>
-          <span>Digital Marketing</span><span class="sep">·</span>
-          <span>French</span><span class="sep">·</span>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="wordmark" aria-label="Charlie Smith, home">
+        <svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3h18M3 21h18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><rect x="4.4" y="7" width="2.2" height="10" rx="1" fill="#8f89ad"/><rect x="8" y="9" width="2.2" height="8" rx="1" fill="#7e9b73"/><rect x="11.6" y="11" width="2.2" height="6" rx="1" fill="#6a97b8"/><rect x="15.2" y="6" width="2.2" height="11" rx="1" fill="#d4914f"/><rect x="18.8" y="12" width="2.2" height="5" rx="1" fill="#d8664f"/></svg>
+        Charlie Smith
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="index.html" data-page="index.html,">Home</a>
+        <a href="projects.html" data-page="projects.html,cairn-plenum.html,linkedin-plus.html,zeolite-water.html,stirling-engine.html,portfolio-site.html">Work</a>
+        <a href="about.html" data-page="about.html">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <div class="seg" role="group" aria-label="Appearance">
+          <button type="button" data-theme-set="system" aria-pressed="true">System</button>
+          <button type="button" data-theme-set="light" aria-pressed="false">Light</button>
+          <button type="button" data-theme-set="dark" aria-pressed="false">Dark</button>
         </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
       </div>
     </div>
-  </section>
+  </header>
 
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="contact-inner">
-        <div class="contact-left">
-          <span class="section-tag">Get In Touch</span>
-          <h2>Let's build something remarkable.</h2>
-          <p>WPI Mechanical Engineering student — open to internships, co-ops, and interesting engineering problems.</p>
-        </div>
-        <div class="contact-right">
-          <a href="mailto:csmith6@wpi.edu" class="contact-email">csmith6@wpi.edu</a>
-          <div class="contact-links">
-            <a href="https://www.linkedin.com/in/csmith2006/" target="_blank" class="contact-social">LinkedIn</a>
-            <a href="https://github.com/CharlieJSmith57" target="_blank" class="contact-social">GitHub</a>
-            <a href="assets/resume.pdf" target="_blank" class="contact-social">Résumé PDF</a>
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow"><span class="tick"></span> Mechanical Engineering · WPI ’28 · Worcester, MA</span>
+          <h1>
+            <span class="line"><span>Mechanical engineer</span></span>
+            <span class="line"><span>who ships the</span></span>
+            <span class="line"><span><em>software</em> too.</span></span>
+          </h1>
+          <p class="lede">I’m Charlie. I founded Ledgeline Labs, where I’m building Cairn and Plenum: a LiDAR capture app, a fusion and texture-bake server, and a Mac viewer that turn a building walk-through into a tagged, photo-textured 3D record. Before that: a CNC-machined Stirling engine, a water-from-air research plan for the Sahara, and a pipeline that maps my professional network.</p>
+          <div class="hero-actions">
+            <a href="projects.html" class="btn btn-primary">See the work <span class="arr">→</span></a>
+            <a href="about.html" class="btn btn-secondary">About me</a>
           </div>
         </div>
+        <div class="hero-visual">
+          <div class="hero-frame">
+            <img src="assets/images/plenum-unity-hall-splat-viewport.jpg" alt="Plenum rendering a photo-textured triangle splat of a Unity Hall hallway, with the walk path drawn in brass on the floor" width="1600" height="1391" fetchpriority="high">
+            <span class="hud hud--tl"><span class="dot"></span> Plenum · Unity Hall</span>
+            <span class="hud hud--br">2,106,741 tris · triangle splat</span>
+          </div>
+          <div class="hero-caption">
+            <span>Captured with Cairn on iPhone · fused server-side · viewed in Plenum</span>
+            <span>2026</span>
+          </div>
+          <div class="rail" style="margin-top:0.6rem" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="At a glance">
+      <div class="container stats-grid">
+        <div class="stat" data-reveal style="--i:0"><span class="stat-num">2028</span><span class="stat-label">Expected graduation</span></div>
+        <div class="stat" data-reveal style="--i:1"><span class="stat-num"><span data-count="4">0</span></span><span class="stat-label">Apps &amp; services in production</span></div>
+        <div class="stat" data-reveal style="--i:2"><span class="stat-num"><span data-count="2.1">0</span><small>M</small></span><span class="stat-label">Triangles rendered live</span></div>
+        <div class="stat" data-reveal style="--i:3"><span class="stat-num"><span data-count="1800">0</span><small>+</small></span><span class="stat-label">Connections mapped</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <span class="eyebrow"><span class="tick"></span> Selected work</span>
+            <h2>Five projects, four disciplines.</h2>
+          </div>
+          <p>Software, research, manufacturing and the site you’re reading. Each one gets a hue from the Cairn &amp; Plenum palette.</p>
+        </div>
+
+        <div class="work-grid">
+
+          <article class="card card--span6 card--brass" data-reveal style="--i:0">
+            <div class="card-media">
+              <div class="compare" aria-label="Drag to compare the fused LiDAR mesh with the photo-textured triangle splat">
+                <img src="assets/images/plenum-unity-hall-splat.jpg" alt="Photo-textured triangle splat of a Unity Hall hallway in Plenum" loading="lazy" width="1600" height="1246">
+                <img class="top" src="assets/images/plenum-unity-hall-mesh.jpg" alt="Untextured fused LiDAR geometry of the same hallway in Plenum" loading="lazy" width="1600" height="1246">
+                <div class="handle" aria-hidden="true"></div>
+                <span class="hud lbl lbl--l">Geometry</span>
+                <span class="hud lbl lbl--r">Textured splat</span>
+                <input type="range" min="0" max="100" value="55" aria-label="Compare geometry and textured splat">
+              </div>
+            </div>
+            <div class="card-body">
+              <span class="card-kicker">Software · 3D capture</span>
+              <h3>Cairn &amp; Plenum</h3>
+              <p>A LiDAR capture app for iPhone, a fusion and texture-bake server, and a Mac viewer. Together they turn a walk-through into a tagged, photo-textured 3D record that survives elevators, reflective walls and repeat visits.</p>
+              <div class="tags"><span class="tag tag--brass">Swift 6</span><span class="tag">ARKit</span><span class="tag">Metal</span><span class="tag">PyTorch · CUDA</span><span class="tag">Linux server</span></div>
+              <div class="card-foot"><span class="meta">Jul 2026 – present · Ledgeline Labs</span><span class="btn-text">Case study <span class="arr">→</span></span></div>
+            </div>
+            <a class="card-link" href="cairn-plenum.html" aria-label="Read the Cairn and Plenum case study"></a>
+          </article>
+
+          <article class="card card--span3 card--blueprint" data-reveal style="--i:1">
+            <div class="card-media"><canvas class="netcanvas" aria-hidden="true"></canvas></div>
+            <div class="card-body">
+              <span class="card-kicker">Software · Data</span>
+              <h3>LinkedIn+</h3>
+              <p>An unattended daily pipeline that turns an 1,800-person professional network into a queryable, visual graph of careers, companies and real relationships.</p>
+              <div class="tags"><span class="tag tag--blueprint">Python</span><span class="tag">Playwright</span><span class="tag">D3 · three.js</span></div>
+              <div class="card-foot"><span class="meta">Apr – Aug 2026</span><span class="btn-text">Case study <span class="arr">→</span></span></div>
+            </div>
+            <a class="card-link" href="linkedin-plus.html" aria-label="Read the LinkedIn+ case study"></a>
+          </article>
+
+          <article class="card card--span3 card--moss" data-reveal style="--i:2">
+            <div class="card-media">
+              <div class="cover-art" aria-hidden="true">
+                <svg viewBox="0 0 320 200" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <g class="sky">
+                    <circle cx="160" cy="48" r="36" stroke="#ddd5c7" stroke-dasharray="3 6"/>
+                    <circle cx="160" cy="12" r="9" fill="#e6b83b"/>
+                    <path d="M155 92a9 9 0 1 0 9-9 6.5 6.5 0 0 1-9 9z" fill="#928a79"/>
+                  </g>
+                  <path d="M40 150h240" stroke="#c9a876"/>
+                  <path d="M60 150l16-10 18 10 20-14 22 14 18-8 20 8 26-12 20 12 18-6" stroke="#c9a876" opacity="0.7"/>
+                  <rect x="110" y="108" width="100" height="34" rx="8" stroke="#5c7a52" fill="rgba(92,122,82,0.12)"/>
+                  <path d="M124 119h6M138 127h6M152 119h6M166 127h6M180 119h6M194 127h6" stroke="#5c7a52"/>
+                  <g>
+                    <path class="drop" d="M134 144c-4 6-4 10 0 10s4-4 0-10z" fill="#3d6b8a"/>
+                    <path class="drop" d="M160 144c-4 6-4 10 0 10s4-4 0-10z" fill="#3d6b8a"/>
+                    <path class="drop" d="M186 144c-4 6-4 10 0 10s4-4 0-10z" fill="#3d6b8a"/>
+                  </g>
+                  <g stroke="#3d6b8a" opacity="0.8">
+                    <path class="vapor" d="M132 104c-3-4 3-8 0-12"/>
+                    <path class="vapor" d="M160 104c-3-4 3-8 0-12"/>
+                    <path class="vapor" d="M188 104c-3-4 3-8 0-12"/>
+                  </g>
+                  <path d="M120 174h80" stroke="#3d6b8a"/>
+                  <path d="M126 174a34 8 0 0 0 68 0" stroke="#3d6b8a" fill="rgba(61,107,138,0.15)"/>
+                </svg>
+              </div>
+            </div>
+            <div class="card-body">
+              <span class="card-kicker">Research · Water</span>
+              <h3>Water from air, Abalessa</h3>
+              <p>A co-authored research plan for a solar-driven zeolite water harvester in the Algerian Sahara, sized and costed for a 100-person pilot with gravity-fed storage.</p>
+              <div class="tags"><span class="tag tag--moss">WPI GPS</span><span class="tag">Zeolite AWG</span><span class="tag">Feasibility</span></div>
+              <div class="card-foot"><span class="meta">Oct 2024 – Mar 2025</span><span class="btn-text">Case study <span class="arr">→</span></span></div>
+            </div>
+            <a class="card-link" href="zeolite-water.html" aria-label="Read the water-from-air case study"></a>
+          </article>
+
+          <article class="card card--span3 card--iron" data-reveal style="--i:3">
+            <div class="card-media">
+              <div class="cover-art" aria-hidden="true">
+                <svg viewBox="0 0 320 200" fill="none" stroke="#5f5a78" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="60" y="40" width="70" height="120" rx="6"/>
+                  <path d="M70 40v-8h50v8" opacity="0.6"/>
+                  <g class="piston">
+                    <rect x="72" y="104" width="46" height="26" rx="3" fill="rgba(95,90,120,0.18)"/>
+                    <path d="M95 130v40"/>
+                  </g>
+                  <circle cx="95" cy="172" r="6" fill="#5f5a78"/>
+                  <g class="crank">
+                    <circle cx="210" cy="140" r="42"/>
+                    <circle cx="210" cy="140" r="6" fill="#5f5a78"/>
+                    <path d="M210 98v84M168 140h84" opacity="0.5"/>
+                  </g>
+                  <path d="M100 172l72-32" stroke="#b8763a"/>
+                  <path d="M60 60h70M60 90h70" opacity="0.35" stroke-dasharray="2 5"/>
+                  <path d="M40 176h240" stroke="#ddd5c7"/>
+                </svg>
+              </div>
+            </div>
+            <div class="card-body">
+              <span class="card-kicker">Manufacturing</span>
+              <h3>Stirling engine, CAM to CNC</h3>
+              <p>A working Stirling engine machined from raw stock: Mastercam toolpaths, CNC lathe and mill, metrology, and a finished assembly that runs.</p>
+              <div class="tags"><span class="tag tag--iron">Mastercam 2025</span><span class="tag">CNC lathe · mill</span><span class="tag">ME 1800</span></div>
+              <div class="card-foot"><span class="meta">2024 – 2025 · WPI</span><span class="btn-text">Case study <span class="arr">→</span></span></div>
+            </div>
+            <a class="card-link" href="stirling-engine.html" aria-label="Read the Stirling engine case study"></a>
+          </article>
+
+          <article class="card card--span3 card--stone" data-reveal style="--i:4">
+            <div class="card-media">
+              <div class="cover-art" aria-hidden="true">
+                <svg viewBox="0 0 320 200" fill="none" stroke="#928a79" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="30" y="24" width="260" height="152" rx="12"/>
+                  <path d="M30 52h260"/>
+                  <circle cx="46" cy="38" r="3"/><circle cx="58" cy="38" r="3"/><circle cx="70" cy="38" r="3"/>
+                  <rect x="50" y="72" width="90" height="10" rx="3" fill="#b8763a" stroke="none" opacity="0.8"/>
+                  <rect x="50" y="92" width="130" height="7" rx="3" fill="#ddd5c7" stroke="none"/>
+                  <rect x="50" y="106" width="110" height="7" rx="3" fill="#ddd5c7" stroke="none"/>
+                  <rect x="50" y="128" width="70" height="22" rx="11" stroke="#b8763a"/>
+                  <rect x="200" y="72" width="70" height="78" rx="8" stroke="#ddd5c7"/>
+                  <path d="M212 132l14-18 12 12 10-8 10 14" stroke="#5c7a52"/>
+                </svg>
+              </div>
+            </div>
+            <div class="card-body">
+              <span class="card-kicker">Web</span>
+              <h3>This site</h3>
+              <p>A hand-built static site on GitHub Pages, restyled to the Cairn &amp; Plenum design system with cross-page transitions and a System / Light / Dark control.</p>
+              <div class="tags"><span class="tag">HTML · CSS · JS</span><span class="tag">View Transitions</span><span class="tag">Claude Code</span></div>
+              <div class="card-foot"><span class="meta">2026</span><span class="btn-text">Case study <span class="arr">→</span></span></div>
+            </div>
+            <a class="card-link" href="portfolio-site.html" aria-label="Read about how this site was built"></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Swift 6</span><span>SwiftUI</span><span>ARKit · RoomPlan</span><span>SceneKit · Metal</span><span>Python</span><span>PyTorch · CUDA</span><span>Playwright</span><span>D3 · three.js</span><span>Onshape</span><span>AutoCAD</span><span>Mastercam</span><span>CNC lathe · mill</span><span>MATLAB</span><span>Photoshop · Lightroom</span><span>French</span>
+        <span>Swift 6</span><span>SwiftUI</span><span>ARKit · RoomPlan</span><span>SceneKit · Metal</span><span>Python</span><span>PyTorch · CUDA</span><span>Playwright</span><span>D3 · three.js</span><span>Onshape</span><span>AutoCAD</span><span>Mastercam</span><span>CNC lathe · mill</span><span>MATLAB</span><span>Photoshop · Lightroom</span><span>French</span>
       </div>
     </div>
-  </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <span class="eyebrow"><span class="tick"></span> How I work</span>
+            <h2>Decisions I make on purpose.</h2>
+          </div>
+          <p>The same rules I hold the software to, applied to everything else I build.</p>
+        </div>
+        <div class="principles">
+          <div class="principle" data-reveal style="--i:0">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20l4-12 4 8 4-14 4 18"/></svg></div>
+            <h3>Field-first</h3>
+            <p>A capture app has to work with no Wi-Fi, gloves on, in a bright doorway. If it only works at the desk, it doesn’t ship.</p>
+          </div>
+          <div class="principle" data-reveal style="--i:1">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h13"/><circle cx="19" cy="17" r="2"/></svg></div>
+            <h3>Build the whole chain</h3>
+            <p>Capture, pipeline, and viewer are one system. Owning every link is how a bug in registration gets fixed in the pipeline, not patched in the UI.</p>
+          </div>
+          <div class="principle" data-reveal style="--i:2">
+            <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></div>
+            <h3>Look before claiming</h3>
+            <p>A passing test count isn’t a result. I render it, measure it, and check the negative control before I call something fixed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-card" data-reveal>
+          <div class="rail" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <div>
+            <span class="eyebrow"><span class="tick"></span> Get in touch</span>
+            <h2>Open to internships and co-ops.</h2>
+            <p>WPI mechanical engineering, class of 2028. Happy to relocate. If you’re working on hardware that needs software, or software that has to survive the field, I’d like to hear about it.</p>
+          </div>
+          <div class="contact-right">
+            <a href="mailto:csmith6@wpi.edu" class="contact-email">csmith6@wpi.edu</a>
+            <div class="contact-links">
+              <a href="https://www.linkedin.com/in/csmith2006/" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="https://github.com/CharlieJSmith57" target="_blank" rel="noopener">GitHub</a>
+              <a href="assets/resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
-    <div class="container">
-      <span class="nav-logo">CJS<span class="accent">.</span></span>
-      <p>© 2026   Built with care. Hosted on GitHub Pages.</p>
+    <div class="container footer-inner">
+      <span>© 2026 Charles J. Smith · Worcester, MA</span>
+      <nav aria-label="Footer">
+        <a href="projects.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="mailto:csmith6@wpi.edu">Email</a>
+      </nav>
     </div>
   </footer>
 

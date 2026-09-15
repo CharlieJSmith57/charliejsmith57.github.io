@@ -1,131 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects — Charles Smith</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Work — Charlie Smith</title>
+  <meta name="description" content="Projects by Charlie Smith: Cairn & Plenum (LiDAR capture to 3D record), LinkedIn+, zeolite water-from-air research, a CNC-machined Stirling engine, and this site.">
+  <meta property="og:title" content="Work — Charlie Smith">
+  <meta property="og:image" content="https://charliejsmith57.github.io/assets/images/plenum-unity-hall-splat.jpg">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>(function(){try{var t=localStorage.getItem('theme')||'system';if(t==='dark'||(t==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.setAttribute('data-theme','dark')}catch(e){}})()</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
 
-  <nav class="nav">
-    <a href="index.html" class="nav-logo">CJS<span class="accent">.</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="projects.html" class="active">Projects</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <section class="page-hero">
-    <div class="container">
-      <span class="section-tag">Work</span>
-      <h1>All<br><span class="outline-text">Projects</span></h1>
-    </div>
-  </section>
-
-  <section class="projects-list">
-    <div class="container">
-      <div class="projects-list-grid">
-
-        <a href="project-1.html" class="project-list-item">
-          <div class="project-list-img" style="background: linear-gradient(135deg, #1a1000 0%, #2e1f00 50%, #3d2800 100%); display: flex; align-items: center; justify-content: center;">
-            <svg width="200" height="100" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.4;">
-              <rect x="70" y="20" width="40" height="50" rx="1" stroke="#c8ff00" stroke-width="0.75"/>
-              <rect x="75" y="35" width="30" height="15" rx="0.5" stroke="#c8ff00" stroke-width="0.75" fill="rgba(200,255,0,0.05)"/>
-              <line x1="90" y1="50" x2="90" y2="75" stroke="#c8ff00" stroke-width="0.75"/>
-              <circle cx="90" cy="83" r="10" stroke="#c8ff00" stroke-width="0.75"/>
-              <circle cx="130" cy="83" r="14" stroke="#c8ff00" stroke-width="0.75"/>
-              <line x1="90" y1="75" x2="118" y2="83" stroke="#c8ff00" stroke-width="0.75"/>
-            </svg>
-          </div>
-          <div class="project-list-body">
-            <div class="project-tags">
-              <span class="tag">CNC Machining</span>
-              <span class="tag">Mastercam</span>
-              <span class="tag">ME 1800</span>
-              <span class="tag">Manufacturing</span>
-            </div>
-            <h3>Stirling Engine — CAM to CNC</h3>
-            <p>Machined a functional Stirling engine from raw stock using CAM software (Mastercam 2025) and CNC lathes and mills — full pipeline from solid model to finished, assembled part.</p>
-            <span class="project-link" style="margin-top: auto; padding-top: 1rem;">View Case Study →</span>
-          </div>
-        </a>
-
-        <a href="project-2.html" class="project-list-item">
-          <div class="project-list-img" style="background: linear-gradient(135deg, #0d1a0f 0%, #0a2e1a 50%, #093d1e 100%); display: flex; align-items: center; justify-content: center;">
-            <svg width="200" height="100" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.4;">
-              <circle cx="100" cy="50" r="40" stroke="#c8ff00" stroke-width="0.75"/>
-              <circle cx="100" cy="50" r="22" stroke="#c8ff00" stroke-width="0.5"/>
-              <line x1="100" y1="10" x2="100" y2="90" stroke="#c8ff00" stroke-width="0.5" stroke-dasharray="3 5"/>
-              <line x1="60" y1="50" x2="140" y2="50" stroke="#c8ff00" stroke-width="0.5" stroke-dasharray="3 5"/>
-              <path d="M70 65 Q85 55 100 65 Q115 75 130 65" stroke="#c8ff00" stroke-width="1" fill="none"/>
-            </svg>
-          </div>
-          <div class="project-list-body">
-            <div class="project-tags">
-              <span class="tag">Group Research</span>
-              <span class="tag">WPI Great Problems Seminar</span>
-              <span class="tag">Enviromental Studies</span>
-              <span class="tag">Sustainability Engineering</span>
-            </div>
-            <h3>Air to Water Extraction — Abalessa, Algeria</h3>
-            <p>Co-authored a research plan to deliver fresh water to an impoverished region in Algeria using MIT-developed Zeolite atmospheric water collection technology.</p>
-            <span class="project-link" style="margin-top: auto; padding-top: 1rem;">View Case Study →</span>
-          </div>
-        </a>
-
-        <a href="project-3.html" class="project-list-item">
-          <div class="project-list-img" style="background: linear-gradient(135deg, #0a0a0a 0%, #111827 50%, #0f172a 100%); display: flex; align-items: center; justify-content: center;">
-            <svg width="160" height="90" viewBox="0 0 160 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.45;">
-              <rect x="10" y="8" width="140" height="74" rx="4" stroke="#c8ff00" stroke-width="0.75"/>
-              <line x1="10" y1="24" x2="150" y2="24" stroke="#c8ff00" stroke-width="0.4"/>
-              <circle cx="21" cy="16" r="3" stroke="#c8ff00" stroke-width="0.5"/>
-              <circle cx="30" cy="16" r="3" stroke="#c8ff00" stroke-width="0.5"/>
-              <circle cx="39" cy="16" r="3" stroke="#c8ff00" stroke-width="0.5"/>
-              <rect x="22" y="32" width="50" height="5" rx="1" fill="#c8ff00" opacity="0.12"/>
-              <rect x="22" y="42" width="80" height="10" rx="1" fill="#c8ff00" opacity="0.07"/>
-              <rect x="22" y="57" width="35" height="6" rx="2" stroke="#c8ff00" stroke-width="0.6" fill="rgba(200,255,0,0.06)"/>
-              <rect x="100" y="32" width="40" height="28" rx="2" stroke="#c8ff00" stroke-width="0.5" opacity="0.3"/>
-            </svg>
-          </div>
-          <div class="project-list-body">
-            <div class="project-tags">
-              <span class="tag">HTML / CSS / JS</span>
-              <span class="tag">Claude Code</span>
-              <span class="tag">GitHub Pages</span>
-            </div>
-            <h3>This Portfolio Website</h3>
-            <p>Designed and built a multi-page static portfolio site using HTML, CSS, and vanilla JS. Developed iteratively with Claude Code and deployed on GitHub Pages.</p>
-            <span class="project-link" style="margin-top: auto; padding-top: 1rem;">View Case Study →</span>
-          </div>
-        </a>
-        
-        <div class="project-list-item" style="opacity: 0.4; cursor: default;">
-          <div class="project-list-img" style="background: #111; display: flex; align-items: center; justify-content: center;">
-            <span style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);">Coming Soon</span>
-          </div>
-          <div class="project-list-body">
-            <div class="project-tags"><span class="tag">In Progress</span></div>
-            <h3>Next Project</h3>
-            <p>More projects will be added as coursework and work progresses.</p>
-          </div>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="wordmark" aria-label="Charlie Smith, home">
+        <svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3h18M3 21h18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><rect x="4.4" y="7" width="2.2" height="10" rx="1" fill="#8f89ad"/><rect x="8" y="9" width="2.2" height="8" rx="1" fill="#7e9b73"/><rect x="11.6" y="11" width="2.2" height="6" rx="1" fill="#6a97b8"/><rect x="15.2" y="6" width="2.2" height="11" rx="1" fill="#d4914f"/><rect x="18.8" y="12" width="2.2" height="5" rx="1" fill="#d8664f"/></svg>
+        Charlie Smith
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="index.html" data-page="index.html,">Home</a>
+        <a href="projects.html" data-page="projects.html,cairn-plenum.html,linkedin-plus.html,zeolite-water.html,stirling-engine.html,portfolio-site.html">Work</a>
+        <a href="about.html" data-page="about.html">About</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <div class="seg" role="group" aria-label="Appearance">
+          <button type="button" data-theme-set="system" aria-pressed="true">System</button>
+          <button type="button" data-theme-set="light" aria-pressed="false">Light</button>
+          <button type="button" data-theme-set="dark" aria-pressed="false">Dark</button>
         </div>
-
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
       </div>
     </div>
-  </section>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow"><span class="tick"></span> Work</span>
+        <h1>Everything I’ve built<br>that I’d show you.</h1>
+        <p class="lede">Software that has to survive a job site, research that had to survive a desert, and a machine that had to survive a lathe. Filter by kind, or just scroll.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="chip" data-filter="software" aria-pressed="false">Software</button>
+          <button type="button" class="chip" data-filter="research" aria-pressed="false">Research</button>
+          <button type="button" class="chip" data-filter="manufacturing" aria-pressed="false">Manufacturing</button>
+          <button type="button" class="chip" data-filter="web" aria-pressed="false">Web</button>
+        </div>
+
+        <div class="list-grid">
+
+          <article class="card card--brass" data-kind="software" data-reveal style="--i:0">
+            <div class="card-media">
+              <div class="compare" aria-label="Drag to compare the fused LiDAR mesh with the photo-textured triangle splat">
+                <img src="assets/images/plenum-unity-hall-splat.jpg" alt="Photo-textured triangle splat of a Unity Hall hallway in Plenum" loading="lazy" width="1600" height="1246">
+                <img class="top" src="assets/images/plenum-unity-hall-mesh.jpg" alt="Untextured fused LiDAR geometry of the same hallway in Plenum" loading="lazy" width="1600" height="1246">
+                <div class="handle" aria-hidden="true"></div>
+                <span class="hud lbl lbl--l">Geometry</span>
+                <span class="hud lbl lbl--r">Textured splat</span>
+                <input type="range" min="0" max="100" value="55" aria-label="Compare geometry and textured splat">
+              </div>
+            </div>
+            <div class="card-body">
+              <span class="card-kicker">Software · 3D capture</span>
+              <h3>Cairn &amp; Plenum</h3>
+              <p>A LiDAR capture app, a fusion and texture-bake server, and a Mac viewer that turn a building walk-through into a tagged, photo-textured 3D record across repeat visits.</p>
+              <div class="tags"><span class="tag tag--brass">Swift 6</span><span class="tag">ARKit</span><span class="tag">Metal</span><span class="tag">PyTorch · CUDA</span></div>
+              <div class="card-foot"><span class="meta">Jul 2026 – present</span><span class="btn-text">Case study <span class="arr">→</span></span></div>
+            </div>
+            <a class="card-link" href="cairn-plenum.html" aria-label="Read the Cairn and Plenum case study"></a>
+          </article>
+
+          <article class="card card--blueprint" data-kind="software" data-reveal style="--i:1">
+            <div class="card-media"><canvas class="netcanvas" aria-hidden="true"></canvas></div>
+            <div class="card-body">
+              <span class="card-kicker">Software · Data</span>
+              <h3>LinkedIn+</h3>
+              <p>An unattended daily pipeline that turns an 1,800-person professional network into a queryable, visual graph of careers, companies and real relationships.</p>
+              <div class="tags"><span class="tag tag--blueprint">Python</span><span class="tag">Playwright</span><span class="tag">D3 · three.js</span></div>
+              <div class="card-foot"><span class="meta">Apr – Aug 2026</span><span class="btn-text">Case study <span class="arr">→</span></span></div>
+            </div>
+            <a class="card-link" href="linkedin-plus.html" aria-label="Read the LinkedIn+ case study"></a>
+          </article>
+
+          <article class="card card--moss" data-kind="research" data-reveal style="--i:2">
+            <div class="card-media">
+              <div class="cover-art" aria-hidden="true">
+                <svg viewBox="0 0 320 200" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <g class="sky">
+                    <circle cx="160" cy="48" r="36" stroke="#ddd5c7" stroke-dasharray="3 6"/>
+                    <circle cx="160" cy="12" r="9" fill="#e6b83b"/>
+                    <path d="M155 92a9 9 0 1 0 9-9 6.5 6.5 0 0 1-9 9z" fill="#928a79"/>
+                  </g>
+                  <path d="M40 150h240" stroke="#c9a876"/>
+                  <path d="M60 150l16-10 18 10 20-14 22 14 18-8 20 8 26-12 20 12 18-6" stroke="#c9a876" opacity="0.7"/>
+                  <rect x="110" y="108" width="100" height="34" rx="8" stroke="#5c7a52" fill="rgba(92,122,82,0.12)"/>
+                  <path d="M124 119h6M138 127h6M152 119h6M166 127h6M180 119h6M194 127h6" stroke="#5c7a52"/>
+                  <g>
+                    <path class="drop" d="M134 144c-4 6-4 10 0 10s4-4 0-10z" fill="#3d6b8a"/>
+                    <path class="drop" d="M160 144c-4 6-4 10 0 10s4-4 0-10z" fill="#3d6b8a"/>
+                    <path class="drop" d="M186 144c-4 6-4 10 0 10s4-4 0-10z" fill="#3d6b8a"/>
+                  </g>
+                  <g stroke="#3d6b8a" opacity="0.8">
+                    <path class="vapor" d="M132 104c-3-4 3-8 0-12"/>
+                    <path class="vapor" d="M160 104c-3-4 3-8 0-12"/>
+                    <path class="vapor" d="M188 104c-3-4 3-8 0-12"/>
+                  </g>
+                  <path d="M120 174h80" stroke="#3d6b8a"/>
+                  <path d="M126 174a34 8 0 0 0 68 0" stroke="#3d6b8a" fill="rgba(61,107,138,0.15)"/>
+                </svg>
+              </div>
+            </div>
+            <div class="card-body">
+              <span class="card-kicker">Research · Water</span>
+              <h3>Water from air, Abalessa</h3>
+              <p>A co-authored research plan for a solar-driven zeolite water harvester in the Algerian Sahara, sized and costed for a 100-person pilot with gravity-fed storage.</p>
+              <div class="tags"><span class="tag tag--moss">WPI GPS</span><span class="tag">Zeolite AWG</span><span class="tag">Feasibility</span></div>
+              <div class="card-foot"><span class="meta">Oct 2024 – Mar 2025</span><span class="btn-text">Case study <span class="arr">→</span></span></div>
+            </div>
+            <a class="card-link" href="zeolite-water.html" aria-label="Read the water-from-air case study"></a>
+          </article>
+
+          <article class="card card--iron" data-kind="manufacturing" data-reveal style="--i:3">
+            <div class="card-media">
+              <div class="cover-art" aria-hidden="true">
+                <svg viewBox="0 0 320 200" fill="none" stroke="#5f5a78" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="60" y="40" width="70" height="120" rx="6"/>
+                  <path d="M70 40v-8h50v8" opacity="0.6"/>
+                  <g class="piston">
+                    <rect x="72" y="104" width="46" height="26" rx="3" fill="rgba(95,90,120,0.18)"/>
+                    <path d="M95 130v40"/>
+                  </g>
+                  <circle cx="95" cy="172" r="6" fill="#5f5a78"/>
+                  <g class="crank">
+                    <circle cx="210" cy="140" r="42"/>
+                    <circle cx="210" cy="140" r="6" fill="#5f5a78"/>
+                    <path d="M210 98v84M168 140h84" opacity="0.5"/>
+                  </g>
+                  <path d="M100 172l72-32" stroke="#b8763a"/>
+                  <path d="M60 60h70M60 90h70" opacity="0.35" stroke-dasharray="2 5"/>
+                  <path d="M40 176h240" stroke="#ddd5c7"/>
+                </svg>
+              </div>
+            </div>
+            <div class="card-body">
+              <span class="card-kicker">Manufacturing</span>
+              <h3>Stirling engine, CAM to CNC</h3>
+              <p>A working Stirling engine machined from raw stock: Mastercam toolpaths, CNC lathe and mill, metrology, and a finished assembly that runs.</p>
+              <div class="tags"><span class="tag tag--iron">Mastercam 2025</span><span class="tag">CNC lathe · mill</span><span class="tag">ME 1800</span></div>
+              <div class="card-foot"><span class="meta">2024 – 2025 · WPI</span><span class="btn-text">Case study <span class="arr">→</span></span></div>
+            </div>
+            <a class="card-link" href="stirling-engine.html" aria-label="Read the Stirling engine case study"></a>
+          </article>
+
+          <article class="card card--stone" data-kind="web software" data-reveal style="--i:4">
+            <div class="card-media">
+              <div class="cover-art" aria-hidden="true">
+                <svg viewBox="0 0 320 200" fill="none" stroke="#928a79" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="30" y="24" width="260" height="152" rx="12"/>
+                  <path d="M30 52h260"/>
+                  <circle cx="46" cy="38" r="3"/><circle cx="58" cy="38" r="3"/><circle cx="70" cy="38" r="3"/>
+                  <rect x="50" y="72" width="90" height="10" rx="3" fill="#b8763a" stroke="none" opacity="0.8"/>
+                  <rect x="50" y="92" width="130" height="7" rx="3" fill="#ddd5c7" stroke="none"/>
+                  <rect x="50" y="106" width="110" height="7" rx="3" fill="#ddd5c7" stroke="none"/>
+                  <rect x="50" y="128" width="70" height="22" rx="11" stroke="#b8763a"/>
+                  <rect x="200" y="72" width="70" height="78" rx="8" stroke="#ddd5c7"/>
+                  <path d="M212 132l14-18 12 12 10-8 10 14" stroke="#5c7a52"/>
+                </svg>
+              </div>
+            </div>
+            <div class="card-body">
+              <span class="card-kicker">Web</span>
+              <h3>This site</h3>
+              <p>A hand-built static site on GitHub Pages, restyled to the Cairn &amp; Plenum design system with cross-page transitions and a System / Light / Dark control.</p>
+              <div class="tags"><span class="tag">HTML · CSS · JS</span><span class="tag">View Transitions</span><span class="tag">Claude Code</span></div>
+              <div class="card-foot"><span class="meta">2026</span><span class="btn-text">Case study <span class="arr">→</span></span></div>
+            </div>
+            <a class="card-link" href="portfolio-site.html" aria-label="Read about how this site was built"></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
-    <div class="container">
-      <span class="nav-logo">CJS<span class="accent">.</span></span>
-      <p>© 2026 — Charles J. Smith</p>
+    <div class="container footer-inner">
+      <span>© 2026 Charles J. Smith · Worcester, MA</span>
+      <nav aria-label="Footer">
+        <a href="projects.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="mailto:csmith6@wpi.edu">Email</a>
+      </nav>
     </div>
   </footer>
 

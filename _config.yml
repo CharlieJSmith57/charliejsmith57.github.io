@@ -1,13 +1,9 @@
-# GitHub Pages Jekyll configuration
-# This file tells GitHub Pages how to serve this site
-
-title: "ME Portfolio"
-description: "Mechanical Engineering Portfolio"
-
-# Use default Jekyll theme (or remove for plain HTML)
+# GitHub Pages configuration — plain static HTML, no Jekyll theme
+title: "Charlie Smith"
+description: "Mechanical engineer who ships the software too."
 theme: null
 
-# Exclude files from the build
 exclude:
   - README.md
   - "*.sh"
+  - .claude

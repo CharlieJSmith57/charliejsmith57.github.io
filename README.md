@@ -1,76 +1,44 @@
-# Mechanical Engineering Portfolio
+# Charlie Smith — portfolio
 
-A dark, sleek personal portfolio site built for GitHub Pages. No frameworks, no build tools — just HTML, CSS, and vanilla JS.
+Static portfolio for GitHub Pages. No framework, no build step: HTML, CSS and vanilla JS.
 
-## File Structure
+The visual language is the **Cairn & Plenum design system** (paper / stone / ink neutrals, brass primary,
+one hue per trade, Space Grotesk / Work Sans / IBM Plex Mono). The tokens live at the top of
+`assets/style.css`; every light token has a dark twin under `:root[data-theme="dark"]`.
+
+## Pages
 
 ```
-portfolio/
-├── index.html          ← Home / intro page
-├── projects.html       ← All projects listing
-├── project-1.html      ← Lightweight Structural Chassis
-├── project-2.html      ← Heat Exchanger Optimization
-├── project-3.html      ← 6-DOF Robotic Gripper
-├── about.html          ← About / CV page
-├── _config.yml         ← GitHub Pages config
-└── assets/
-    ├── style.css       ← All styles
-    ├── main.js         ← Nav + scroll animations
-    └── resume.pdf      ← (add your resume here)
+index.html            Home: hero, stats, selected work, principles, contact
+projects.html         All work, with filter chips
+cairn-plenum.html     Case study: Cairn (iOS capture) + Plenum (macOS viewer) + server + trainer
+linkedin-plus.html    Case study: LinkedIn+ network pipeline and graph
+zeolite-water.html    Case study: WPI GPS water-from-air research plan (embeds assets/gps-report.pdf)
+stirling-engine.html  Case study: ME 1800 Stirling engine, CAM to CNC
+portfolio-site.html   Case study: this site
+about.html            Bio, education, experience, leadership, skills
+404.html              Branded not-found page (served automatically by GitHub Pages)
+project-1/2/3.html    Redirect stubs for the old URLs
+assets/style.css      All styles (tokens at the top)
+assets/main.js        Theme control, nav, page transitions, reveals, counters, compare wipe, network canvas
+assets/images/        Headshot, Plenum screenshots, Cairn icon
+assets/favicon.svg    Five-bar discipline mark
 ```
 
-## Deploying to GitHub Pages
+## Motion
 
-1. Create a new GitHub repository (e.g. `your-username.github.io` for a root site, or any name for a project site)
-2. Upload all files in this folder to the repository
-3. Go to **Settings → Pages**
-4. Under "Source", select **Deploy from a branch**
-5. Choose `main` branch and `/ (root)` folder
-6. Click Save — your site will be live at `https://your-username.github.io` within a few minutes
+- Cross-document **View Transitions** (`@view-transition { navigation: auto }`) between pages, with a JS fade fallback.
+- Staggered scroll reveals via `data-reveal` + `--i`.
+- **System / Light / Dark** segmented control (same control as the apps); theme is stored in `localStorage` and cross-fades.
+- Cursor spotlight on cards, count-up stats, a drag-to-compare wipe (geometry vs textured splat), an animated network canvas.
+- Everything respects `prefers-reduced-motion`.
 
-## Customizing
+## Editing
 
-### Personal info
-Search and replace these placeholders across all files:
-- `Your Name` → your real name
-- `YN` → your initials (avatar on About page)
-- `your@email.com` → your email
-- `ME.` → your initials logo (top left nav)
-- LinkedIn / GitHub links → your actual URLs
+- Change a colour once in the `:root` block of `assets/style.css` (and its dark twin) and it updates everywhere.
+- To add a project: copy a `*-case-study` page, add a `.card` to `index.html` and `projects.html` (set `data-kind` for the filters), and update the previous/next links at the bottom of the neighbouring pages.
+- Cover images go in `assets/images/`; keep them around 1600 px wide.
 
-### Projects
-Each project page (`project-1.html`, etc.) has clearly labeled sections:
-- Edit the `<h1>` for the project name
-- Edit the `.project-meta` items for year/role/duration/industry
-- Edit the `.project-tags` for your actual tools
-- Edit the sidebar lists for tools, processes, standards
-- Edit the result grid numbers
-- Edit the `<article>` body text with your real project description
+## Deploy
 
-To add a new project:
-1. Duplicate `project-3.html` → `project-4.html`
-2. Add a card for it in `projects.html` and `index.html`
-3. Update the "Next/Previous Project" nav links
-
-### Photos / images
-Replace the gradient `.project-cover` divs with real `<img>` tags:
-```html
-<div class="project-cover">
-  <img src="assets/images/project-1-cover.jpg" alt="Chassis render" style="width:100%; height:100%; object-fit:cover;">
-</div>
-```
-
-### Accent color
-The lime-green accent (`#c8ff00`) is defined as `--accent` in `assets/style.css`.
-Change it to any color you like — one edit updates the whole site.
-
-### Resume
-Drop your PDF at `assets/resume.pdf` — it's already linked from the About page and the contact section.
-
-## Fonts
-Uses Google Fonts (loaded via CDN):
-- **Bebas Neue** — display headings
-- **DM Sans** — body text
-- **DM Mono** — labels, tags, meta
-
-All fonts load from `fonts.googleapis.com` — works fine on GitHub Pages.
+Push to `main`. GitHub Pages serves the root of the repository.

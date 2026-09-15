@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>LinkedIn+ — Charlie Smith</title>
+  <meta name="description" content="LinkedIn+: an unattended pipeline that turns an 1,800-person professional network into a queryable, visual graph of careers, companies and real relationships.">
+  <meta property="og:title" content="LinkedIn+ — Charlie Smith">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>(function(){try{var t=localStorage.getItem('theme')||'system';if(t==='dark'||(t==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.setAttribute('data-theme','dark')}catch(e){}})()</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><i></i></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="wordmark" aria-label="Charlie Smith, home">
+        <svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3h18M3 21h18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><rect x="4.4" y="7" width="2.2" height="10" rx="1" fill="#8f89ad"/><rect x="8" y="9" width="2.2" height="8" rx="1" fill="#7e9b73"/><rect x="11.6" y="11" width="2.2" height="6" rx="1" fill="#6a97b8"/><rect x="15.2" y="6" width="2.2" height="11" rx="1" fill="#d4914f"/><rect x="18.8" y="12" width="2.2" height="5" rx="1" fill="#d8664f"/></svg>
+        Charlie Smith
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="index.html" data-page="index.html,">Home</a>
+        <a href="projects.html" data-page="projects.html,cairn-plenum.html,linkedin-plus.html,zeolite-water.html,stirling-engine.html,portfolio-site.html">Work</a>
+        <a href="about.html" data-page="about.html">About</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <div class="seg" role="group" aria-label="Appearance">
+          <button type="button" data-theme-set="system" aria-pressed="true">System</button>
+          <button type="button" data-theme-set="light" aria-pressed="false">Light</button>
+          <button type="button" data-theme-set="dark" aria-pressed="false">Dark</button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="p-hero">
+      <div class="container">
+        <a href="projects.html" class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> All work</a>
+        <div class="tags"><span class="tag tag--blueprint">Software</span><span class="tag">Data pipeline</span><span class="tag">Visualization</span><span class="tag">Personal tool</span></div>
+        <h1>LinkedIn+</h1>
+        <p class="lede">LinkedIn shows you one profile at a time. I wanted to see the whole network: who moved where, which companies cluster, and which connections are real relationships rather than inferred ones. So I built a pipeline that maintains that picture for me every day.</p>
+        <div class="p-meta">
+          <div><span class="p-meta-label">Timeline</span><span class="p-meta-value">Apr – Aug 2026</span></div>
+          <div><span class="p-meta-label">Role</span><span class="p-meta-value">Sole developer</span></div>
+          <div><span class="p-meta-label">Stack</span><span class="p-meta-value">Python 3.12 · Playwright · D3</span></div>
+          <div><span class="p-meta-label">Source</span><span class="p-meta-value"><a href="https://github.com/CharlieJSmith57/Linkedin-Web" target="_blank" rel="noopener">Linkedin-Web on GitHub ↗</a></span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="p-cover" data-reveal>
+        <canvas class="netcanvas" aria-label="Animated network graph: nodes coloured by discipline, edges between nearby connections" role="img"></canvas>
+      </div>
+    </div>
+
+    <div class="container p-body">
+      <aside class="p-side">
+        <div class="side-block">
+          <h4>Pipeline</h4>
+          <ul>
+            <li>Request LinkedIn data export</li>
+            <li>Gmail watcher catches “archive ready”</li>
+            <li>Download &amp; extract Connections.csv</li>
+            <li>Diff against yesterday</li>
+            <li>Enrich profiles &amp; companies</li>
+            <li>Master Excel workbook</li>
+            <li>Export network.json</li>
+            <li>Render 2D / 3D graph</li>
+          </ul>
+        </div>
+        <div class="side-block">
+          <h4>Stack</h4>
+          <ul>
+            <li>Python 3.12</li>
+            <li>Playwright browser automation</li>
+            <li>Gmail IMAP polling</li>
+            <li>openpyxl · Excel as master store</li>
+            <li>D3 force graph · three.js 3D</li>
+            <li>macOS launchd, systemd target</li>
+          </ul>
+        </div>
+        <div class="side-block">
+          <h4>By the numbers</h4>
+          <ul>
+            <li><b>1,800+</b> connections tracked</li>
+            <li><b>205</b> profiles enriched</li>
+            <li><b>330</b> companies enriched</li>
+            <li><b>15,920</b> mutual-connection edges</li>
+          </ul>
+        </div>
+      </aside>
+
+      <article class="prose">
+        <h2>What it does</h2>
+        <p>LinkedIn+ is a private, self-hosted “network intelligence” tool for one account: mine. Each day it pulls a fresh copy of my connections through LinkedIn’s own data-export feature, notices what changed, enriches the people and companies it doesn’t know yet, and rebuilds a graph I can explore in a browser. It’s a personal instrument, not a product, and it lives entirely on my machine.</p>
+
+        <h2>How it runs unattended</h2>
+        <div class="pipeline">
+          <div class="step"><b>Export</b><span>A browser session requests the LinkedIn data archive.</span></div>
+          <div class="step"><b>Watch</b><span>An IMAP watcher spots the “your archive is ready” email.</span></div>
+          <div class="step"><b>Diff</b><span>The new CSV is compared with the last snapshot; only changes move on.</span></div>
+          <div class="step"><b>Enrich</b><span>Experience, education, skills and company pages fill in the gaps, slowly.</span></div>
+          <div class="step"><b>Publish</b><span>Excel is the master store; a JSON export feeds the graph.</span></div>
+        </div>
+        <p>The three parts live in three separate folders on purpose: orchestration, enrichment, and data. That split is a hard rule in the codebase, and it’s what let me rebuild the enricher from scratch in August without touching a single row of data.</p>
+
+        <h2>The graph</h2>
+        <p>The front-end is a static page fed by <code>network.json</code>. It has five views (network, company, industry, school, discipline) in 2D and 3D, with company clustering and an org-chart layout driven by seniority. Two classifiers I wrote from scratch make those views possible: a 17-tier discipline-by-seniority title taxonomy that turns free-text job titles into something sortable, and a four-tier Greek-organization detector covering 68 organizations and roughly 8,400 chapter-name variants.</p>
+        <p>The biggest upgrade was a mutual-connections scan. Before it, “these two people know each other” was inferred from shared schools and employers. After it, the graph carries 15,920 ground-truth relationship edges across 155 scanned profiles.</p>
+
+        <h2>The bug that took a month</h2>
+        <p>In July 2026 LinkedIn shipped a server-driven UI redesign. Nothing errored; the pipeline simply started writing empty fields, and I didn’t notice until the diffs went quiet. Fixing it meant reverse-engineering the new page structure, writing a new selector strategy, and building a 46-profile regression corpus so I could prove the rebuilt extractor matched the old one byte for byte before trusting it again.</p>
+
+        <div class="results">
+          <div class="result"><span class="num">46</span><span class="label">Profile regression corpus</span></div>
+          <div class="result"><span class="num">17</span><span class="label">Title taxonomy tiers</span></div>
+          <div class="result"><span class="num">68</span><span class="label">Greek orgs detected</span></div>
+        </div>
+
+        <h2>Data handling</h2>
+        <p>The core of the pipeline is LinkedIn’s own export of my own data, requested the way any member can. Profile enrichment reads pages I can already see when logged in, runs slowly and in the background, and is documented in the codebase as a separate, higher-risk path with its own rules. When a shortcut came up that would have meant working around LinkedIn’s limits with a second account, I evaluated it and rejected it. Nothing about other people leaves my machine: the public repository holds the code and a visualization, not the workbook.</p>
+
+        <h2>What’s next</h2>
+        <ul>
+          <li>A company “blob” view with logos and career-transition arrows between employers</li>
+          <li>A professional-society detector (ASME, ASCE, SHPE and friends) mirroring the Greek-org one</li>
+          <li>A scheduled agent that fills in missing company industries</li>
+          <li>A reconnection nudge: surface the people I should catch up with</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="container pager">
+      <a href="cairn-plenum.html"><small>Previous</small><b>Cairn &amp; Plenum</b></a>
+      <a class="next" href="zeolite-water.html"><small>Next</small><b>Water from air, Abalessa</b></a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Charles J. Smith · Worcester, MA</span>
+      <nav aria-label="Footer">
+        <a href="projects.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="mailto:csmith6@wpi.edu">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>
