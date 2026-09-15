@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>This site — Charlie Smith</title>
+  <meta name="description" content="How this portfolio was built: a hand-written static site on GitHub Pages using the Cairn & Plenum design system, cross-document view transitions and a System / Light / Dark control.">
+  <meta property="og:title" content="This site — Charlie Smith">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>(function(){try{var t=localStorage.getItem('theme')||'system';if(t==='dark'||(t==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.setAttribute('data-theme','dark')}catch(e){}})()</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><i></i></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="wordmark" aria-label="Charlie Smith, home">
+        <svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3h18M3 21h18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><rect x="4.4" y="7" width="2.2" height="10" rx="1" fill="#8f89ad"/><rect x="8" y="9" width="2.2" height="8" rx="1" fill="#7e9b73"/><rect x="11.6" y="11" width="2.2" height="6" rx="1" fill="#6a97b8"/><rect x="15.2" y="6" width="2.2" height="11" rx="1" fill="#d4914f"/><rect x="18.8" y="12" width="2.2" height="5" rx="1" fill="#d8664f"/></svg>
+        Charlie Smith
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="index.html" data-page="index.html,">Home</a>
+        <a href="projects.html" data-page="projects.html,cairn-plenum.html,linkedin-plus.html,zeolite-water.html,stirling-engine.html,portfolio-site.html">Work</a>
+        <a href="about.html" data-page="about.html">About</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <div class="seg" role="group" aria-label="Appearance">
+          <button type="button" data-theme-set="system" aria-pressed="true">System</button>
+          <button type="button" data-theme-set="light" aria-pressed="false">Light</button>
+          <button type="button" data-theme-set="dark" aria-pressed="false">Dark</button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="p-hero">
+      <div class="container">
+        <a href="projects.html" class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> All work</a>
+        <div class="tags"><span class="tag">Web</span><span class="tag">HTML · CSS · JS</span><span class="tag">GitHub Pages</span><span class="tag">Claude Code</span></div>
+        <h1>This site</h1>
+        <p class="lede">A static portfolio with no framework and no build step, restyled in September 2026 to match the design system I built for Cairn and Plenum. If the palette looks familiar after the case study, that’s on purpose.</p>
+        <div class="p-meta">
+          <div><span class="p-meta-label">First built</span><span class="p-meta-value">Apr 2026</span></div>
+          <div><span class="p-meta-label">Renovated</span><span class="p-meta-value">Sep 2026</span></div>
+          <div><span class="p-meta-label">Stack</span><span class="p-meta-value">HTML · CSS · vanilla JS</span></div>
+          <div><span class="p-meta-label">Source</span><span class="p-meta-value"><a href="https://github.com/CharlieJSmith57/cjsmith57.github.io" target="_blank" rel="noopener">GitHub ↗</a></span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container p-body">
+      <aside class="p-side">
+        <div class="side-block">
+          <h4>Design system</h4>
+          <ul>
+            <li>Paper, stone and ink neutrals</li>
+            <li>Brass primary; one hue per trade</li>
+            <li>Space Grotesk · Work Sans · IBM Plex Mono</li>
+            <li>Radii 6 / 12 / 20 / pill</li>
+            <li>1.75 px icon strokes on a 24 grid</li>
+          </ul>
+        </div>
+        <div class="side-block">
+          <h4>Motion</h4>
+          <ul>
+            <li>Cross-document view transitions</li>
+            <li>Staggered scroll reveals</li>
+            <li>Theme cross-fade</li>
+            <li>Cursor spotlight on cards</li>
+            <li>Geometry / texture compare wipe</li>
+            <li>Honours reduced-motion</li>
+          </ul>
+        </div>
+        <div class="side-block">
+          <h4>Hosting</h4>
+          <ul>
+            <li>GitHub Pages, main branch</li>
+            <li>No framework, no build</li>
+            <li>Fonts from Google Fonts</li>
+          </ul>
+        </div>
+      </aside>
+
+      <article class="prose">
+        <h2>Why rebuild it</h2>
+        <p>The first version of this site, from April 2026, was a dark template with a lime accent and three projects. By September the work had changed: most of my time was going into Cairn and Plenum, and those apps had grown a real design system with their own palette, type and component rules. Keeping the portfolio in a different visual language than the product I was showing off made no sense, so the site now runs on the same tokens.</p>
+
+        <h2>What changed</h2>
+        <ul>
+          <li><strong>Palette and type.</strong> Light mode is the default, on paper rather than black. Every colour has a dark twin in the same warm family, and the System / Light / Dark control in the navigation is the same segmented control both apps use.</li>
+          <li><strong>Page transitions.</strong> Navigation between pages uses cross-document view transitions where the browser supports them, with a small JavaScript fade as a fallback. The navigation bar is pinned so only the content moves.</li>
+          <li><strong>Real imagery.</strong> The gradient placeholders are gone. The Cairn &amp; Plenum cover is a drag-to-compare wipe between the fused LiDAR geometry and the photo-textured splat of the same hallway.</li>
+          <li><strong>Projects page.</strong> Two new case studies, filter chips, and a card per project coloured by its discipline hue.</li>
+          <li><strong>Motion with limits.</strong> Reveals, counters and the compare wipe all stop when the visitor has asked for reduced motion.</li>
+        </ul>
+
+        <h2>How it was built</h2>
+        <p>I iterate on the site with Claude Code, the same way I work on the apps: describe the change, review the diff, load the page, look at it. Git tracks every revision and GitHub Pages publishes straight from the main branch, so a change is a commit and a push.</p>
+
+        <div class="results">
+          <div class="result"><span class="num">9</span><span class="label">Pages</span></div>
+          <div class="result"><span class="num">0</span><span class="label">Frameworks</span></div>
+          <div class="result"><span class="num">$0</span><span class="label">Hosting cost</span></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="container pager">
+      <a href="stirling-engine.html"><small>Previous</small><b>Stirling engine, CAM to CNC</b></a>
+      <a class="next" href="cairn-plenum.html"><small>Next</small><b>Cairn &amp; Plenum</b></a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Charles J. Smith · Worcester, MA</span>
+      <nav aria-label="Footer">
+        <a href="projects.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="mailto:csmith6@wpi.edu">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>

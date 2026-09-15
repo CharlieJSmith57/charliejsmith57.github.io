@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cairn &amp; Plenum — Charlie Smith</title>
+  <meta name="description" content="Cairn and Plenum: a LiDAR capture app, a fusion and texture-bake server, and a Mac viewer that turn a building walk-through into a tagged, photo-textured 3D record.">
+  <meta property="og:title" content="Cairn & Plenum — Charlie Smith">
+  <meta property="og:image" content="https://cjsmith57.github.io/assets/images/plenum-unity-hall-splat.jpg">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>(function(){try{var t=localStorage.getItem('theme')||'system';if(t==='dark'||(t==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.setAttribute('data-theme','dark')}catch(e){}})()</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><i></i></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="wordmark" aria-label="Charlie Smith, home">
+        <svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3h18M3 21h18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><rect x="4.4" y="7" width="2.2" height="10" rx="1" fill="#8f89ad"/><rect x="8" y="9" width="2.2" height="8" rx="1" fill="#7e9b73"/><rect x="11.6" y="11" width="2.2" height="6" rx="1" fill="#6a97b8"/><rect x="15.2" y="6" width="2.2" height="11" rx="1" fill="#d4914f"/><rect x="18.8" y="12" width="2.2" height="5" rx="1" fill="#d8664f"/></svg>
+        Charlie Smith
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="index.html" data-page="index.html,">Home</a>
+        <a href="projects.html" data-page="projects.html,cairn-plenum.html,linkedin-plus.html,zeolite-water.html,stirling-engine.html,portfolio-site.html">Work</a>
+        <a href="about.html" data-page="about.html">About</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <div class="seg" role="group" aria-label="Appearance">
+          <button type="button" data-theme-set="system" aria-pressed="true">System</button>
+          <button type="button" data-theme-set="light" aria-pressed="false">Light</button>
+          <button type="button" data-theme-set="dark" aria-pressed="false">Dark</button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="p-hero">
+      <div class="container">
+        <a href="projects.html" class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> All work</a>
+        <div class="tags"><span class="tag tag--brass">Software</span><span class="tag">3D capture</span><span class="tag">iOS · macOS · Linux</span><span class="tag">Ledgeline Labs</span></div>
+        <h1>Cairn &amp; Plenum</h1>
+        <p class="lede">Walk a building once with an iPhone. Get back a registered, photo-textured, tagged 3D record that still lines up on the next visit. Cairn captures it, a server fuses it, Plenum lets you work in it.</p>
+        <div class="p-meta">
+          <div><span class="p-meta-label">Timeline</span><span class="p-meta-value">Jul 2026 – present</span></div>
+          <div><span class="p-meta-label">Role</span><span class="p-meta-value">Design, product &amp; engineering</span></div>
+          <div><span class="p-meta-label">Where</span><span class="p-meta-value">Ledgeline Labs</span></div>
+          <div><span class="p-meta-label">Stack</span><span class="p-meta-value">Swift 6 · Python · CUDA</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="p-cover p-cover--tall" data-reveal>
+        <div class="compare" aria-label="Drag to compare the fused LiDAR mesh with the photo-textured triangle splat">
+          <img src="assets/images/plenum-unity-hall-splat.jpg" alt="Plenum showing a photo-textured triangle splat of a Unity Hall hallway, with the discipline-coloured asset sidebar on the left" width="1600" height="1246">
+          <img class="top" src="assets/images/plenum-unity-hall-mesh.jpg" alt="The same view showing untextured fused LiDAR geometry" width="1600" height="1246">
+          <div class="handle" aria-hidden="true"></div>
+          <span class="hud lbl lbl--l">Fused geometry</span>
+          <span class="hud lbl lbl--r">Textured triangle splat</span>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare geometry and textured splat">
+        </div>
+      </div>
+    </div>
+
+    <div class="container p-body">
+      <aside class="p-side">
+        <div class="side-block">
+          <h4>Components</h4>
+          <ul>
+            <li><b>Cairn</b> · iOS / iPadOS capture app</li>
+            <li><b>Plenum</b> · macOS viewer &amp; tagger</li>
+            <li><b>SiteScanServer</b> · ingest, fusion, bakes</li>
+            <li><b>SplatTrainer</b> · GPU training service</li>
+          </ul>
+        </div>
+        <div class="side-block">
+          <h4>Stack</h4>
+          <ul>
+            <li>Swift 6, strict concurrency</li>
+            <li>SwiftUI · ARKit · RoomPlan</li>
+            <li>SceneKit · Metal (MTKView)</li>
+            <li>Hand-rolled HTTP server, Linux-portable</li>
+            <li>SQLite append-only log</li>
+            <li>Python · PyTorch · gsplat · CUDA</li>
+            <li>Tailscale private network</li>
+          </ul>
+        </div>
+        <div class="side-block">
+          <h4>By the numbers</h4>
+          <ul>
+            <li><b>4</b> repos, 93 commits since July</li>
+            <li><b>485 / 485</b> Swift tests passing</li>
+            <li><b>2</b> buildings in daily use</li>
+          </ul>
+        </div>
+      </aside>
+
+      <article class="prose">
+        <h2>The problem</h2>
+        <p>Building inspection still runs on paper punch lists and photos in a camera roll. Consumer LiDAR scanning apps produce a pretty mesh of one visit, but nothing that survives the next one: the second scan doesn’t line up with the first, an elevator ride breaks tracking, glass and polished floors leave holes, and the people walking through end up baked into the walls.</p>
+        <p>Cairn and Plenum are the two ends of a system built to fix that. The goal is a single record of a site that gets better with every visit, tagged by trade, that an inspector can actually work in.</p>
+
+        <h2>One walk, one record, three tools</h2>
+        <div class="pipeline pipeline--7">
+          <div class="step"><b>Capture</b><span>Cairn records LiDAR depth, RGB, panoramas, nameplate OCR and motion into an offline, append-only log.</span></div>
+          <div class="step"><b>Sync</b><span>The log queues on-device and flushes over Wi-Fi when the crew is back in range.</span></div>
+          <div class="step"><b>Register</b><span>Nameplate-seeded pose plus ICP and wall-plane agreement line every visit up with the last.</span></div>
+          <div class="step"><b>Fuse</b><span>Point-cloud reconstruction and TSDF meshing fill reflective-surface gaps.</span></div>
+          <div class="step"><b>Bake</b><span>A UV-atlas baker paints photo textures and detail patches onto the mesh.</span></div>
+          <div class="step"><b>Train</b><span>Gaussian and triangle splats are trained per floor on a CUDA box.</span></div>
+          <div class="step"><b>Tag</b><span>Plenum streams the composite floor by floor for MEP tagging and review.</span></div>
+        </div>
+
+        <div class="duo">
+          <div class="duo-card">
+            <div class="head">
+              <img src="assets/images/cairn-icon.png" alt="Cairn app icon" width="44" height="44">
+              <div><b>Cairn</b><small>Field · iPhone &amp; iPad</small></div>
+            </div>
+            <p>Built for a thumb, gloves, and a bright doorway. One continuous ARKit session, no separate passes.</p>
+            <ul>
+              <li>LiDAR + RoomPlan capture with RGB, depth, panoramas and motion</li>
+              <li>2.5-second nameplate hold grounds each visit in shared coordinates</li>
+              <li>Offline-first queue; capture never needs site Wi-Fi</li>
+              <li>Elevator-aware tracking banners and haptics</li>
+              <li>Person and face data handled before a scan leaves the device</li>
+            </ul>
+          </div>
+          <div class="duo-card">
+            <div class="head">
+              <svg viewBox="0 0 44 44" aria-label="Plenum mark" role="img"><rect width="44" height="44" rx="10" fill="#231f19"/><path d="M10 10h24M10 34h24" stroke="#faf8f4" stroke-width="1.75" stroke-linecap="round"/><rect x="11" y="15" width="3.2" height="15" rx="1.4" fill="#8f89ad"/><rect x="16.2" y="18" width="3.2" height="12" rx="1.4" fill="#7e9b73"/><rect x="21.4" y="21" width="3.2" height="9" rx="1.4" fill="#6a97b8"/><rect x="26.6" y="14" width="3.2" height="16" rx="1.4" fill="#d4914f"/><rect x="31.8" y="23" width="3.2" height="7" rx="1.4" fill="#d8664f"/></svg>
+              <div><b>Plenum</b><small>Desk · Mac</small></div>
+            </div>
+            <p>Built for a mouse, a keyboard and a long tagging session. Five ways to see the same space.</p>
+            <ul>
+              <li>Architecture, raw LiDAR, fused point cloud, gap-filled mesh, photo-textured composite</li>
+              <li>Metal splat viewer alongside SceneKit views</li>
+              <li>MEP asset tagging with one colour per trade</li>
+              <li>Change history: click a sign or board to see it from every visit</li>
+              <li>Admin, diagnostics and cluster load-manager tabs</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2>The hard parts</h2>
+        <p>Most of the engineering time went into making the record hold up under real conditions rather than on a demo floor.</p>
+        <ul>
+          <li><strong>Elevators.</strong> ARKit’s frames stall for the whole ride, and barometric altitude was fighting the shaft offset. The fix splits the session at the ride, promotes a trusted origin, and applies a yaw correction so the floor-6-to-1 ride lands where it should instead of 38 m sideways.</li>
+          <li><strong>Repeat visits.</strong> A second visit is registered per fragment using a nameplate-seeded pose, ICP, and a two-sided “both cameras looked here” agreement test before wall planes are merged. Untrusted fragments are held, not deleted, and re-solved when new evidence arrives.</li>
+          <li><strong>Reflective surfaces.</strong> Glass and polished floors leave LiDAR holes. TSDF fusion plus a monocular-depth gap fill close them without inventing geometry the cameras never saw.</li>
+          <li><strong>People.</strong> A projection rule across visits removes anyone who was only there once, so the composite shows the building, not the crew.</li>
+          <li><strong>Doubled surfaces.</strong> The splat’s copy of a wall used to float in front of the photo-textured mesh. A per-surface layer rule keeps one, unless LiDAR saw an object there.</li>
+          <li><strong>Load time.</strong> Streaming the composite per floor, bottom-up, took a 10-minute open down to 27 seconds.</li>
+          <li><strong>Compute.</strong> A cluster load manager dispatches fusion, bake and training jobs across a Mac, an RTX 3060 workstation and a rack server over Tailscale.</li>
+        </ul>
+
+        <div class="results">
+          <div class="result"><span class="num">2.1<small>M</small></span><span class="label">Triangles in one live view</span></div>
+          <div class="result"><span class="num">27<small>s</small></span><span class="label">Composite load, from ~10 min</span></div>
+          <div class="result"><span class="num">50<small>s</small></span><span class="label">To fuse 2.76 M vertices</span></div>
+        </div>
+
+        <figure class="figure" data-reveal>
+          <img src="assets/images/plenum-unity-hall-mesh.jpg" alt="Plenum with the asset sidebar grouped by discipline: structural in iron, mechanical in moss, plumbing in blueprint, electrical in brass, fire protection in ember" loading="lazy" width="1600" height="1246">
+          <figcaption>Plenum, Unity Hall. The sidebar groups every tagged asset by trade; the bar mark in the toolbar is a live readout of how many assets each trade has.</figcaption>
+        </figure>
+
+        <h2>One language, two devices</h2>
+        <p>Both apps share one design system: warm paper and stone neutrals, ink text, brass as the single primary accent, and one hue per discipline so a tag reads the same on a phone in a mechanical room and on a Mac at a desk. Every token has a dark twin in the same family, and both apps offer System, Light and Dark. This site uses the same palette, which is why it looks the way it does.</p>
+        <div class="legend">
+          <span><i style="background:#5f5a78"></i> Structural</span>
+          <span><i style="background:#5c7a52"></i> Mechanical</span>
+          <span><i style="background:#3d6b8a"></i> Plumbing</span>
+          <span><i style="background:#b8763a"></i> Electrical</span>
+          <span><i style="background:#b8452f"></i> Fire protection</span>
+        </div>
+
+        <h2>How it was built</h2>
+        <p>I own the product, the design system and the architecture, and I write and review the code with Claude Code as my primary engineering tool. The rule that mattered most: a log line or a passing test count is not a result. Every registration fix, bake and splat gets rendered and looked at, including a negative control, before it ships to the box the inspectors use.</p>
+        <div class="callout"><p>Status: in daily use on two buildings, a five-storey academic hall and a chapter house, with a campus-wide capture campaign planned for November 2026. The repositories are private while the product is pre-release.</p></div>
+      </article>
+    </div>
+
+    <div class="container pager">
+      <a href="portfolio-site.html"><small>Previous</small><b>This site</b></a>
+      <a class="next" href="linkedin-plus.html"><small>Next</small><b>LinkedIn+</b></a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Charles J. Smith · Worcester, MA</span>
+      <nav aria-label="Footer">
+        <a href="projects.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="mailto:csmith6@wpi.edu">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>
