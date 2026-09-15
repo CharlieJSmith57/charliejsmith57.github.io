@@ -184,6 +184,28 @@
     new MutationObserver(() => { if (!running) draw(); }).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
   });
 
+  /* ---------- device pivot: tilt toward the viewer as it scrolls into view ---------- */
+  const devices = document.querySelectorAll('.device');
+  if (devices.length && !reduced) {
+    let ticking = false;
+    const pivot = () => {
+      ticking = false;
+      const vh = innerHeight;
+      devices.forEach(d => {
+        const r = d.getBoundingClientRect();
+        const t = Math.max(-1, Math.min(1, ((r.top + r.height / 2) - vh / 2) / (vh / 2)));
+        const max = parseFloat(d.dataset.pivot || 14);
+        const yaw = parseFloat(d.dataset.yaw || 0);
+        d.style.setProperty('--rx', (-t * max).toFixed(2) + 'deg');
+        d.style.setProperty('--ry', (t * yaw).toFixed(2) + 'deg');
+      });
+    };
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(pivot); } };
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', onScroll);
+    pivot();
+  }
+
   /* ---------- reading progress ---------- */
   const prog = document.querySelector('.progress i');
   if (prog) {
