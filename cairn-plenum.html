@@ -151,6 +151,32 @@
           </div>
         </div>
 
+        <h2>In the field and at the desk</h2>
+        <p>Cairn runs on the phone in your hand; the server dashboard runs on the Mac at the desk. Scroll and both tilt toward you.</p>
+        <div class="devices">
+          <div>
+            <div class="device" data-pivot="14" data-yaw="0">
+              <div class="mac-lid">
+                <div class="mac-screen">
+                  <img src="assets/images/plenum-server-dashboard.jpg" alt="The Plenum Server dashboard under load: jobs in progress with step names and progress bars, worker CPU and GPU utilisation, and queue depth" loading="lazy" width="1800" height="1125">
+                </div>
+              </div>
+              <div class="mac-base" aria-hidden="true"></div>
+            </div>
+            <div class="device-label"><b>Plenum Server</b><span>Load manager, simulated load</span></div>
+          </div>
+          <div class="phone">
+            <div class="device" data-pivot="16" data-yaw="-8">
+              <div class="phone-shell">
+                <div class="phone-screen">
+                  <img src="assets/images/cairn-capture.jpg" alt="Cairn’s capture screen: the tracking status card with observation, room, floor and elapsed readouts, the nameplate scanner, asset and detail-photo buttons, and the octagon stop control over the live camera view" loading="lazy" width="786" height="1704">
+                </div>
+              </div>
+            </div>
+            <div class="device-label"><b>Cairn</b><span>Capture screen, mid-visit</span></div>
+          </div>
+        </div>
+
         <h2>The hard parts</h2>
         <p>Most of the engineering time went into making the record hold up under real conditions rather than on a demo floor.</p>
         <ul>
@@ -162,6 +188,11 @@
           <li><strong>Load time.</strong> Streaming the composite per floor, bottom-up, took a 10-minute open down to 27 seconds.</li>
           <li><strong>Compute.</strong> A cluster load manager dispatches fusion, bake and training jobs across a Mac, an RTX 3060 workstation and a rack server over Tailscale.</li>
         </ul>
+
+        <figure class="figure" data-reveal>
+          <img src="assets/images/plenum-server-system.jpg" alt="The Plenum Server system board: GPU compute at 90 percent with 17.5 GB of VRAM in use, a 16-core CPU heat map, RAM, load, swap, two drive throughput graphs and network in and out" loading="lazy" width="1800" height="1150">
+          <figcaption>Plenum Server’s system board on the GPU worker during a splat-training run (simulated load): GPU compute and VRAM, per-core CPU, drive and network throughput over the last two minutes.</figcaption>
+        </figure>
 
         <div class="results">
           <div class="result"><span class="num">2.1<small>M</small></span><span class="label">Triangles in one live view</span></div>
