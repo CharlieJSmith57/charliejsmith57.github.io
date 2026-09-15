@@ -53,7 +53,7 @@
   --dur-slow: 640ms;
 
   --nav-h: 64px;
-  --container: 1560px;
+  --container: 1840px;
   --gutter: clamp(1.25rem, 4vw, 3.5rem);
 }
 
@@ -339,34 +339,59 @@ html.theme-fade body * { transition: background-color 420ms var(--ease), color 4
 @keyframes drip { 0%, 48% { opacity: 0; transform: translateY(0); } 55% { opacity: 1; } 78% { opacity: 0.9; transform: translateY(28px); } 82%, 100% { opacity: 0; transform: translateY(28px); } }
 @keyframes vapor { 0% { opacity: 0; transform: translateY(0); } 12% { opacity: 0.9; } 38% { opacity: 0; transform: translateY(-44px); } 100% { opacity: 0; } }
 
-/* ---------- device frames that pivot on scroll ---------- */
-/* Staggered to one side: the MacBook fills most of the row, the iPhone overlaps its lower-right corner */
-.devices { position: relative; margin: 1.5rem 0 3rem; padding-bottom: clamp(2rem, 6vw, 5rem); perspective: 1600px; }
-.devices .mac-wrap { width: 82%; }
-.devices .phone { position: absolute; right: 0; bottom: 0; width: clamp(180px, 24%, 300px); margin: 0; }
-.devices .device-label { padding-right: 0; }
-.devices .mac-wrap .device-label { max-width: 60%; }
-.device { transform-style: preserve-3d; transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform 160ms linear; will-change: transform; }
+/* ---------- interactive 3D devices: drag to spin, hover to tilt, idle sway, scroll tilt ---------- */
+.devices { position: relative; margin: 1.5rem 0 3.5rem; padding: clamp(1.5rem, 4vw, 3rem) 0 clamp(3rem, 8vw, 7rem); }
+.devices .mac-wrap { width: min(80%, 900px); }
+.devices .phone { position: absolute; right: clamp(0px, 4%, 3rem); bottom: 0; width: clamp(180px, 22%, 280px); margin: 0; }
+.stage { perspective: 2400px; perspective-origin: 50% 45%; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; }
+.stage.dragging { cursor: grabbing; }
+.obj3d { position: relative; transform-style: preserve-3d; transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); will-change: transform; }
+.face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+
+/* MacBook: a lid (front + aluminium back) hinged on a flat base (deck + front lip) */
+.mac3d { width: 100%; aspect-ratio: 16 / 11.6; }
+.mac3d .lid { position: absolute; left: 0; right: 0; top: 0; height: 66%; transform-origin: 50% 100%; transform: rotateX(8deg); transform-style: preserve-3d; }
+.mac3d .lid .front { border-radius: 14px 14px 5px 5px; background: #17150f; padding: 2.6% 2.6% 3.2%; box-shadow: inset 0 0 0 1px rgba(250,248,244,0.08); }
+.mac3d .lid .front::before { content: ''; position: absolute; top: 5px; left: 50%; width: 6px; height: 6px; border-radius: 50%; background: #2a2823; transform: translateX(-50%); }
+.mac3d .screen { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 6px; background: #f0ece3; }
+.mac3d .screen img { width: 100%; height: 100%; object-fit: cover; object-position: left top; }
+.mac3d .lid .back { border-radius: 14px 14px 5px 5px; transform: rotateY(180deg) translateZ(var(--d, 10px)); background: linear-gradient(160deg, #d9d4ca, #b3ada2 60%, #c6c0b5); box-shadow: inset 0 0 0 1px rgba(35,31,25,0.15); }
+.mac3d .lid .back::after { content: ''; position: absolute; left: 50%; top: 42%; width: 9%; aspect-ratio: 1; border-radius: 22%; background: rgba(35,31,25,0.16); transform: translate(-50%, -50%); }
+.mac3d .lid .rim { position: absolute; left: 0; right: 0; bottom: 0; height: var(--d, 10px); transform-origin: 50% 100%; transform: rotateX(90deg); background: #26231f; }
+.mac3d .base { position: absolute; left: -1.5%; right: -1.5%; top: 66%; height: 58%; transform-origin: 50% 0; transform: rotateX(90deg); transform-style: preserve-3d; }
+.mac3d .deck { position: absolute; inset: 0; border-radius: 6px 6px 18px 18px; background: linear-gradient(180deg, #d8d3c9, #c9c3b8); box-shadow: inset 0 0 0 1px rgba(35,31,25,0.14); }
+.mac3d .deck::before { content: ''; position: absolute; left: 12%; right: 12%; top: 14%; height: 44%; border-radius: 6px; background:
+  radial-gradient(circle at 50% 50%, rgba(35,31,25,0.5) 0 28%, transparent 30%) 0 0 / 3.6% 9.5% repeat, #b7b1a6; opacity: 0.9; }
+.mac3d .deck::after { content: ''; position: absolute; left: 36%; right: 36%; top: 63%; height: 30%; border-radius: 8px; background: rgba(35,31,25,0.06); box-shadow: inset 0 0 0 1px rgba(35,31,25,0.16); }
+.mac3d .lip { position: absolute; left: 0; right: 0; bottom: 0; height: calc(var(--d, 10px) * 1.4); transform-origin: 50% 100%; transform: rotateX(-90deg); border-radius: 0 0 6px 6px; background: linear-gradient(#b3ada2, #8f8a80); }
+.mac3d .underside { position: absolute; inset: 0; border-radius: 6px 6px 18px 18px; transform: rotateX(180deg) translateZ(calc(var(--d, 10px) * 1.4)); background: #a9a399; }
+
+/* iPhone: front, back, and four thin sides */
+.phone3d { width: 100%; aspect-ratio: 9 / 19.4; }
+.phone3d .front { border-radius: 14% / 6.5%; background: #17150f; padding: 3.6%; box-shadow: inset 0 0 0 1px rgba(250,248,244,0.1); }
+.phone3d .front::before { content: ''; position: absolute; top: 5.2%; left: 50%; width: 30%; height: 3%; border-radius: 999px; background: #0b0a08; transform: translateX(-50%); z-index: 2; }
+.phone3d .screen { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 12% / 5.6%; background: #1c1a17; }
+.phone3d .screen img { width: 100%; height: 100%; object-fit: cover; }
+.phone3d .back { border-radius: 14% / 6.5%; transform: rotateY(180deg) translateZ(var(--d, 10px)); background: linear-gradient(160deg, #3a3630, #26231f 55%, #302c27); box-shadow: inset 0 0 0 1px rgba(250,248,244,0.1); }
+.phone3d .back::before { content: ''; position: absolute; left: 7%; top: 3.5%; width: 40%; aspect-ratio: 1; border-radius: 26%; background: #1c1a17; box-shadow: inset 0 0 0 1px rgba(250,248,244,0.12); }
+.phone3d .back::after { content: ''; position: absolute; left: 12%; top: 5.5%; width: 12%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #6a97b8 0 30%, #0b0a08 32% 70%, #3a3630 72%); box-shadow: 18% 0 0 0 #0b0a08, 0 0 0 0 transparent; }
+.phone3d .side { position: absolute; background: #2d2a25; backface-visibility: hidden; }
+.phone3d .side-l { left: 0; top: 4%; bottom: 4%; width: var(--d, 10px); transform-origin: 0 50%; transform: rotateY(90deg); }
+.phone3d .side-r { right: 0; top: 4%; bottom: 4%; width: var(--d, 10px); transform-origin: 100% 50%; transform: rotateY(-90deg); }
+.phone3d .side-t { left: 6%; right: 6%; top: 0; height: var(--d, 10px); transform-origin: 50% 0; transform: rotateX(-90deg); }
+.phone3d .side-b { left: 6%; right: 6%; bottom: 0; height: var(--d, 10px); transform-origin: 50% 100%; transform: rotateX(90deg); }
+
 .device-label { display: flex; justify-content: space-between; gap: 1rem; margin-top: 0.9rem; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; color: var(--stone-400); }
 .device-label b { color: var(--ink); font-weight: 500; }
-.mac-lid { position: relative; border-radius: 16px 16px 6px 6px; background: #17150f; padding: 12px 12px 14px; box-shadow: var(--shadow-lg), inset 0 0 0 1px rgba(250, 248, 244, 0.08); }
-.mac-lid::before { content: ''; position: absolute; top: 4px; left: 50%; width: 6px; height: 6px; border-radius: 50%; background: #2a2823; transform: translateX(-50%); }
-.mac-screen { position: relative; overflow: hidden; border-radius: 6px; background: #f0ece3; aspect-ratio: 16 / 10; }
-.mac-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top left; image-rendering: auto; }
-.mac-base { height: 12px; margin: 0 -3.5%; border-radius: 0 0 14px 14px; background: linear-gradient(#e6e1d6, #bdb7ab); box-shadow: 0 10px 22px rgba(35, 31, 25, 0.18); position: relative; }
-.mac-base::after { content: ''; position: absolute; top: 0; left: 50%; width: 14%; height: 4px; border-radius: 0 0 6px 6px; background: #a9a398; transform: translateX(-50%); }
-.phone { width: min(300px, 100%); margin-inline: auto; }
-.phone-shell { position: relative; border-radius: 48px; background: #17150f; padding: 12px; box-shadow: var(--shadow-lg), inset 0 0 0 1px rgba(250, 248, 244, 0.08); }
-.phone-shell::before { content: ''; position: absolute; top: 24px; left: 50%; width: 32%; height: 22px; border-radius: 14px; background: #0b0a08; transform: translateX(-50%); z-index: 2; }
-.phone-screen { position: relative; overflow: hidden; border-radius: 38px; background: #1c1a17; aspect-ratio: 9 / 19.5; }
-.phone-screen img { width: 100%; height: 100%; object-fit: cover; }
-:root[data-theme="dark"] .mac-base { background: linear-gradient(#4e4941, #35332c); }
+.device-hint { font-family: var(--font-mono); font-size: 0.68rem; color: var(--stone-400); letter-spacing: 0.06em; }
+:root[data-theme="dark"] .mac3d .deck { background: linear-gradient(180deg, #4e4941, #3a3630); }
+:root[data-theme="dark"] .mac3d .lid .back { background: linear-gradient(160deg, #5a554c, #3f3b35 60%, #4e4941); }
 @media (max-width: 820px) {
   .devices { padding-bottom: 0; }
   .devices .mac-wrap { width: 100%; }
-  .devices .phone { position: static; width: min(260px, 100%); margin: 1.5rem auto 0; }
+  .devices .phone { position: static; width: min(240px, 100%); margin: 2rem auto 0; }
 }
-@media (prefers-reduced-motion: reduce) { .device { transform: none !important; } }
+@media (prefers-reduced-motion: reduce) { .obj3d { transform: rotateX(6deg) rotateY(-14deg) !important; } }
 
 /* ---------- marquee ---------- */
 .marquee { border-block: 1px solid var(--stone-200); padding: 1rem 0; overflow: hidden; background: var(--paper-side); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
@@ -436,7 +461,7 @@ html.theme-fade body * { transition: background-color 420ms var(--ease), color 4
 .p-cover { border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--stone-200); background: var(--paper-2); box-shadow: var(--shadow-md); aspect-ratio: 16 / 9; position: relative; }
 .p-cover img { width: 100%; height: 100%; object-fit: cover; }
 .p-cover--tall { aspect-ratio: 16 / 10; }
-.p-body { display: grid; grid-template-columns: clamp(240px, 20vw, 300px) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); padding: clamp(2.5rem, 6vw, 4.5rem) 0; }
+.p-body { display: grid; grid-template-columns: clamp(220px, 17vw, 280px) minmax(0, 1fr); gap: clamp(2rem, 4vw, 4.5rem); padding: clamp(2.5rem, 6vw, 4.5rem) 0; }
 .p-side { position: sticky; top: calc(var(--nav-h) + 1.5rem); align-self: start; display: flex; flex-direction: column; gap: 1.6rem; }
 .side-block h4 { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone-400); font-weight: 500; margin-bottom: 0.6rem; }
 .side-block li { font-size: 0.9rem; padding: 0.4rem 0; border-top: 1px solid var(--stone-200); color: var(--ink-soft); }
@@ -445,8 +470,8 @@ html.theme-fade body * { transition: background-color 420ms var(--ease), color 4
 .prose h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 600; letter-spacing: -0.02em; margin: 2.6rem 0 0.9rem; }
 .prose h2:first-child { margin-top: 0; }
 .prose h3 { font-size: 1.15rem; font-weight: 600; margin: 1.8rem 0 0.5rem; }
-.prose p { color: var(--ink-soft); max-width: 78ch; font-size: clamp(1rem, 0.94rem + 0.25vw, 1.125rem); }
-.prose ul { padding-left: 1.1rem; list-style: disc; color: var(--ink-soft); max-width: 78ch; margin-bottom: 1em; font-size: clamp(1rem, 0.94rem + 0.25vw, 1.125rem); }
+.prose p { color: var(--ink-soft); max-width: 88ch; font-size: clamp(1rem, 0.94rem + 0.25vw, 1.125rem); }
+.prose ul { padding-left: 1.1rem; list-style: disc; color: var(--ink-soft); max-width: 88ch; margin-bottom: 1em; font-size: clamp(1rem, 0.94rem + 0.25vw, 1.125rem); }
 .prose li { margin: 0.35rem 0; }
 .prose li::marker { color: var(--brass); }
 .prose a { color: var(--brass-ink); border-bottom: 1px solid color-mix(in srgb, var(--brass) 40%, transparent); }

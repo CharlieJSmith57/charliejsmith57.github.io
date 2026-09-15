@@ -184,26 +184,76 @@
     new MutationObserver(() => { if (!running) draw(); }).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
   });
 
-  /* ---------- device pivot: tilt toward the viewer as it scrolls into view ---------- */
-  const devices = document.querySelectorAll('.device');
-  if (devices.length && !reduced) {
-    let ticking = false;
-    const pivot = () => {
-      ticking = false;
-      const vh = innerHeight;
-      devices.forEach(d => {
-        const r = d.getBoundingClientRect();
-        const t = Math.max(-1, Math.min(1, ((r.top + r.height / 2) - vh / 2) / (vh / 2)));
-        const max = parseFloat(d.dataset.pivot || 14);
-        const yaw = parseFloat(d.dataset.yaw || 0);
-        d.style.setProperty('--rx', (-t * max).toFixed(2) + 'deg');
-        d.style.setProperty('--ry', (t * yaw).toFixed(2) + 'deg');
+  /* ---------- interactive 3D devices: drag to spin, hover to tilt, idle sway, scroll tilt ---------- */
+  const stages = document.querySelectorAll('.stage');
+  if (stages.length) {
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+    const hoverable = window.matchMedia('(hover: hover)').matches;
+    const rigs = [];
+    stages.forEach(stage => {
+      const obj = stage.querySelector('.obj3d');
+      if (!obj) return;
+      const rig = {
+        stage, obj, ry: parseFloat(obj.dataset.ry || -14), rx: parseFloat(obj.dataset.rx || 6),
+        vy: 0, vx: 0, dragging: false, hovering: false, hx: 0, hy: 0, lastX: 0, lastY: 0, moved: 0,
+        restRy: parseFloat(obj.dataset.ry || -14), restRx: parseFloat(obj.dataset.rx || 6),
+        sway: parseFloat(obj.dataset.sway || 7), depthRatio: parseFloat(obj.dataset.depth || 0.11), phase: Math.random() * 6.28
+      };
+      const setDepth = () => obj.style.setProperty('--d', (obj.getBoundingClientRect().width * rig.depthRatio).toFixed(1) + 'px');
+      setDepth(); new ResizeObserver(setDepth).observe(obj);
+      stage.addEventListener('pointerdown', e => {
+        if (e.button !== 0 && e.pointerType === 'mouse') return;
+        rig.dragging = true; rig.moved = 0; rig.lastX = e.clientX; rig.lastY = e.clientY; rig.vy = 0; rig.vx = 0;
+        stage.classList.add('dragging');
+        if (e.pointerType === 'mouse') stage.setPointerCapture(e.pointerId);
       });
+      stage.addEventListener('pointermove', e => {
+        if (rig.dragging) {
+          const dx = e.clientX - rig.lastX, dy = e.clientY - rig.lastY;
+          // on touch, only take over once the gesture is clearly horizontal so vertical scrolling still works
+          if (e.pointerType !== 'mouse' && rig.moved < 6) { rig.moved += Math.abs(dx) + Math.abs(dy); if (Math.abs(dy) > Math.abs(dx)) return; }
+          rig.lastX = e.clientX; rig.lastY = e.clientY;
+          rig.vy = dx * 0.45; rig.vx = -dy * 0.25;
+          rig.ry += rig.vy; rig.rx = clamp(rig.rx + rig.vx, -28, 28);
+        } else if (hoverable) {
+          const r = stage.getBoundingClientRect();
+          rig.hovering = true;
+          rig.hx = (e.clientX - r.left) / r.width - 0.5; rig.hy = (e.clientY - r.top) / r.height - 0.5;
+        }
+      });
+      const release = () => { rig.dragging = false; stage.classList.remove('dragging'); };
+      stage.addEventListener('pointerup', release); stage.addEventListener('pointercancel', release);
+      stage.addEventListener('pointerleave', () => { rig.hovering = false; if (rig.dragging) release(); });
+      rigs.push(rig);
+    });
+    let last = performance.now();
+    const tick = now => {
+      const dt = Math.min(48, now - last) / 16.67; last = now;
+      const vh = innerHeight;
+      rigs.forEach(rig => {
+        if (!rig.dragging) {
+          // inertia after a fling
+          rig.ry += rig.vy * dt; rig.rx = clamp(rig.rx + rig.vx * dt, -28, 28);
+          rig.vy *= Math.pow(0.93, dt); rig.vx *= Math.pow(0.9, dt);
+          if (Math.abs(rig.vy) < 0.02 && Math.abs(rig.vx) < 0.02) {
+            // settle toward the rest pose + scroll tilt + idle sway (+ hover parallax on pointer devices)
+            const r = rig.stage.getBoundingClientRect();
+            const t = clamp(((r.top + r.height / 2) - vh / 2) / (vh / 2), -1, 1);
+            const scrollTilt = reduced ? 0 : -t * 10;
+            const sway = reduced ? 0 : Math.sin(now / 2600 + rig.phase) * rig.sway;
+            const targetRy = rig.restRy + sway + (rig.hovering ? rig.hx * 26 : 0);
+            const targetRx = rig.restRx + scrollTilt + (rig.hovering ? -rig.hy * 14 : 0);
+            // keep ry on the nearest turn so a spun object eases home the short way
+            let dy = ((targetRy - rig.ry) % 360 + 540) % 360 - 180;
+            rig.ry += dy * 0.06 * dt; rig.rx += (targetRx - rig.rx) * 0.08 * dt;
+          }
+        }
+        rig.obj.style.setProperty('--ry', rig.ry.toFixed(2) + 'deg');
+        rig.obj.style.setProperty('--rx', rig.rx.toFixed(2) + 'deg');
+      });
+      requestAnimationFrame(tick);
     };
-    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(pivot); } };
-    addEventListener('scroll', onScroll, { passive: true });
-    addEventListener('resize', onScroll);
-    pivot();
+    requestAnimationFrame(tick);
   }
 
   /* ---------- reading progress ---------- */
